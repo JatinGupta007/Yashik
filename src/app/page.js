@@ -15,7 +15,9 @@ import {
   FiMinus,
   FiPlus,
   FiArrowRight,
-  FiTrendingUp, 
+  FiTrendingUp,
+  FiChevronLeft,
+  FiChevronRight,
 } from "react-icons/fi";
 import {
   MdOutlineAutoAwesome,
@@ -24,32 +26,71 @@ import {
   MdOutlineEventRepeat,
   MdAutorenew,
 } from "react-icons/md";
+import GrowthSection from "@/components/GrowthSection";
+import FinalCTA from "@/components/FinalCTA";
+import PromiseSection from "@/components/PromiseSection";
 
-
-const blogPosts = [
+const pillars = [
   {
-    image: "/home5.jpeg",
-    category: "CASE STUDY 1",
-    date: "CARDIOLOGIST • JAIPUR",
-    title: "0 - 34 Appointments Per Month in Just 60 Days",
-    description:
-      "Used SEO, GMB, website optimization, and patient funnel system.",
+    title: "360° Reputation Growth Engine",
+    desc: "Grow patient trust with more 5★ reviews and a strong, credible online presence across platforms.",
   },
   {
-    image: "/home6.jpeg",
-    category: "CASE STUDY 2",
-    date: "IVF SPECIALIST • DELHI",
-    title: "212% Increase in Patient Inquiries in 90 Days",
-    description: "Powered by reputation growth engine and SEO accelerator.",
+    title: "AI-Powered SEO Accelerator",
+    desc: "Increase visibility for specialties, symptoms, and treatments to attract high-intent patient searches.",
   },
   {
-    image: "/home7.jpeg",
-    category: "CASE STUDY 3",
-    date: "GASTRO CLINIC • BANGALORE",
-    title: "Ranked #1 for 9 High-Intent Treatment Keywords",
-    description: "Achieved using local SEO and conversion-optimized website.",
+    title: "Website Revamp — Conversion Optimized",
+    desc: "Transform your website into a fast, mobile-friendly appointment booking machine.",
+  },
+  {
+    title: "Local Visibility & GMB Dominance System",
+    desc: "Rank at the top for “near me” and city-based searches where patients are ready to book.",
+  },
+  {
+    title: "Automated Patient Capture & Follow-Up Funnel",
+    desc: "Capture leads instantly and follow up automatically to maximize appointment conversions.",
+  },
+  {
+    title: "Clinic Growth Intelligence Dashboard",
+    desc: "Track SEO, calls, inquiries, conversions, and overall growth in one real-time dashboard.",
   },
 ];
+
+const promiseData = {
+  subtitle: "THE PROMISE",
+  title:
+    "A growth system that increases trust, visibility, conversions, and patient bookings - consistently.",
+  leftPoints: [
+    {
+      icon: <FiSearch className="text-white" size={28} />,
+      desc: " Top placement for “doctor near me” searches",
+    },
+    {
+      icon: <MdAutorenew className="text-white" size={28} />,
+      desc: "Automated patient capture and follow-up",
+    },
+    {
+      icon: <FiTrendingUp className="text-white" size={28} />,
+      desc: "Full visibility of every growth metric",
+    },
+  ],
+  image: "/home4.png",
+  rightPoints: [
+    {
+      icon: <FiStar className="text-white" size={28} />,
+      desc: " Strong online authority through 5★ reputation",
+    },
+    {
+      icon: <HiOutlineChartBar className="text-white" size={28} />,
+      desc: "Higher rankings for specialty, symptoms & treatments",
+    },
+    {
+      icon: <FiFileText className="text-white" size={28} />,
+      desc: "Website optimized for appointments & inquiries",
+    },
+  ],
+};
 
 const testimonials = [
   {
@@ -80,20 +121,6 @@ const testimonials = [
     role: "UI/UX Designer",
     image: "/img-video1.jpg",
   },
-  {
-    quote:
-      "As we explored new use cases, our feature requests were quickly loom prioritized in their backlog, the one of demonstrating.",
-    name: "Adrian B. Fulton",
-    role: "Web Developer",
-    image: "/img-client2.png",
-  },
-  {
-    quote:
-      "As we explored new use cases, our feature requests were quickly loom prioritized in their backlog, the one of demonstrating.",
-    name: "Oscar N. Winsley",
-    role: "Founder",
-    image: "/img-client2.png",
-  },
 ];
 
 const faqs = [
@@ -119,13 +146,49 @@ const faqs = [
   },
 ];
 
+const steps = [
+  {
+    title: "Step 1 - Audit",
+    description:
+      "We analyze your online presence, competition, reputation, website, funnels, and Google visibility.",
+    image: "/home4.png",
+  },
+  {
+    title: "Step 2 - Strategy",
+    description:
+      "We create a custom growth plan based on your specialty, locality, and patient intent.",
+    image: "/img-video1.jpg",
+  },
+  {
+    title: "Step 3 - Implementation",
+    description:
+      "We set up all 6 systems and fully manage your clinic's online growth foundation.",
+    image: "/img-client2.png",
+  },
+  {
+    title: "Step 4 - Optimization",
+    description:
+      "Weekly data analysis, reporting, and adjustments to maintain consistent growth.",
+    image: "/img-client1.png",
+  },
+];
+
 export default function LandingPage() {
   const [contacts, setContacts] = useState(500);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [openIndex, setOpenIndex] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % steps.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + steps.length) % steps.length);
   };
 
   return (
@@ -232,67 +295,71 @@ export default function LandingPage() {
                 </span>
               </div>
 
-              <div className="flex items-center mb-10">
-                <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                  Doctors don&apos;t lack expertise.
-                </h1>
-                <p className="text-[#6B7280] text-lg">
-                  They lack a system that helps patients discover, trust, and
-                  choose them.
-                </p>
-              </div>
-              <div className="space-y-12 flex gap-8">
+              <div className="flex items-center gap-10">
                 <div>
-                  <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-                      <FiTrendingUp className="text-white" size={20} />
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900">
-                      Pain Points
-                    </h3>
-                  </div>
-                  <p className="text-[#6B7280] w-sm text-lg mb-10">
-                    If your clinic isn&apos;t visible, trusted, or easy to book
-                    - patients simply choose someone else.
-                  </p>
-                  <ul className="text-gray-950 font-semibold">
-                    <hr className="border-gray-300" />
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>Inconsistent patient flow</span>
-                    </li>
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>Limited online credibility and reputation</span>
-                    </li>
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>
-                        Not ranking for specialty or treatment keywords
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>
-                        Website traffic isn&apos;t converting to appointments
-                      </span>
-                    </li>
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>No automated follow-up process</span>
-                    </li>
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>Low visibility on Google Maps</span>
-                    </li>
-                    <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
-                      <span>
-                        Zero clarity on what&apos;s working and what&apos;s not
-                      </span>
-                    </li>
-                  </ul>
-                </div>
+                  <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-10">
+                    Doctors don&apos;t lack expertise.
+                  </h1>
 
-                <div className="relative">
+                  <div className="space-y-12 flex gap-8">
+                    <div>
+                      <div className="flex items-center space-x-3 mb-4">
+                        <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
+                          <FiTrendingUp className="text-white" size={20} />
+                        </div>
+                        <h3 className="text-2xl font-bold text-gray-900">
+                          Pain Points
+                        </h3>
+                      </div>
+                      <p className="text-[#6B7280] w-lg text-lg mb-10">
+                        If your clinic isn&apos;t visible, trusted, or easy to
+                        book - patients simply choose someone else.
+                      </p>
+                      <ul className="text-gray-950 font-semibold">
+                        <hr className="border-gray-300" />
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>Inconsistent patient flow</span>
+                        </li>
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>Limited online credibility and reputation</span>
+                        </li>
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>
+                            Not ranking for specialty or treatment keywords
+                          </span>
+                        </li>
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>
+                            Website traffic isn&apos;t converting to
+                            appointments
+                          </span>
+                        </li>
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>No automated follow-up process</span>
+                        </li>
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>Low visibility on Google Maps</span>
+                        </li>
+                        <li className="flex items-start space-x-3 border-b border-gray-300 py-3">
+                          <span>
+                            Zero clarity on what&apos;s working and what&apos;s
+                            not
+                          </span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div className="lg:w-5xl">
+                  <p className="text-[#6B7280] text-lg xl:mb-22 mb-36  ml-10">
+                    They lack a system that helps patients discover, trust, and
+                    choose them.
+                  </p>
                   <Image
                     src="/home3.png"
                     alt="Calendar View"
-                    width={800}
-                    height={800}
+                    width={900}
+                    height={900}
                     className=""
                   />
                 </div>
@@ -303,333 +370,15 @@ export default function LandingPage() {
       </section>
 
       {/* The Promise */}
-      <section className="py-10 px-16">
-        <div className="mx-auto flex flex-col items-center">
-          <div className="text-center mb-7">
-            <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
-              <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
-                THE PROMISE
-              </span>
-            </div>
-          </div>
+      <PromiseSection data={promiseData} />
 
-          <h1 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-10 leading-tight">
-            A growth system that increases trust, visibility,
-            <br />
-            conversions, and patient bookings - consistently.
-            <br />
-          </h1>
-
-          <div className="flex gap-7">
-            <div className="space-y-8">
-              <div className="bg-white rounded-xl w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
-                  <FiSearch className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                  Top placement for “doctor near me” searches
-                </h3>
-              </div>
-
-              {/* Card 2 - Search */}
-              <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
-                  <MdAutorenew className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                  Automated patient capture and follow-up
-                </h3>
-              </div>
-
-              {/* Card 3 - Service */}
-              <div className="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
-                  <FiTrendingUp className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                  Full visibility of every growth metric
-                </h3>
-              </div>
-            </div>
-
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-black via-gray-900 to-green-500">
-                <Image
-                  src="/home4.png"
-                  alt="Happy customer"
-                  className=""
-                  width={900}
-                  height={800}
-                />
-              </div>
-
-              {/* Floating ROI Card */}
-              <div className="absolute bottom-1 left-18 bg-white rounded-2xl shadow-2xl p-6 max-w-xs">
-                <div className="flex items-center space-x-3 mb-3">
-                  <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                    <FiTrendingUp className="text-green-600" size={20} />
-                  </div>
-                  <span className="text-xl font-bold text-gray-900">
-                    ROI Rates
-                  </span>
-                </div>
-                <div className="flex items-baseline space-x-2 mb-2">
-                  <span className="text-4xl font-bold text-gray-900">
-                    27,127
-                  </span>
-                  <span className="text-green-600 text-sm font-semibold bg-green-100 px-2 py-1 rounded">
-                    ↑ 12%
-                  </span>
-                  <span className="text-gray-500 text-sm">vs last years</span>
-                </div>
-                <div className="flex items-center text-gray-500 text-sm">
-                  <span className="mr-2">🕐</span>
-                  <span>Updated 1 month ago</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="bg-white rounded-xl p-7 w-78 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
-                  <FiStar className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                  Strong online authority through 5★ reputation
-                </h3>
-              </div>
-
-              <div className="bg-white rounded-xl p-7 w-78 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
-                  <HiOutlineChartBar className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                  Higher rankings for specialty, symptoms & treatments
-                </h3>
-              </div>
-
-              <div className="bg-white rounded-xl p-7 w-78 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
-                  <FiFileText className="text-white" size={28} />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 leading-tight">
-                  Website optimized for appointments & inquiries
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom CTA */}
-          <div className="text-center mt-10">
-            <div className="inline-block bg-white rounded-full px-8 py-4 shadow-lg border border-gray-200">
-              <span className="text-gray-700 text-lg">
-                See How Our System Works.{" "}
-                <a
-                  href="#"
-                  className="font-bold text-gray-900 underline hover:text-blue-600 transition-colors"
-                >
-                  Try It Out
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Unique Features Section */}
-      <section className="bg-black text-white py-10 pb-16 px-12 mt-10">
-        <div className="mx-auto relative flex flex-col items-center">
-          <div className="flex items-center gap-36">
-            <div className="w-px left-[51%]  h-[85%] absolute bg-[#6B7280]"></div>
-            <div className="">
-              <div className="inline-block border border-white rounded-full px-6 py-2 mb-7">
-                <span className="text-sm font-medium uppercase tracking-wide">
-                  HOW IT WORKS?
-                </span>
-              </div>
-              <h1 className="text-3xl lg:text-[44px] font-bold mb-8">
-                Snapshot of our 6 core services
-              </h1>
-
-              <p className="text-gray-400 text-lg mb-10 leading-relaxed">
-                Our growth system is built on 6 essential pillars that drive
-                patient acquisition.
-              </p>
-
-              <div className="flex items-start space-x-8 mb-10">
-                <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <FiTrendingUp className="text-white" size={22} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    360° Reputation Growth Engine
-                  </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Grow trust, increase 5★ reviews, and build a powerful online
-                    presence.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-8 mb-12">
-                {/* Quote */}
-                <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <HiOutlineChartBar className="text-white" size={22} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Clinic Growth Intelligence Dashboard
-                  </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Monitor SEO, inquiries, calls, conversions, and growth - in
-                    real-time.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Steps */}
-            <div className="space-y-10">
-              <div className="flex items-start space-x-8">
-                <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <MdOutlineAutoAwesome className="text-white" size={22} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    AI-Powered SEO Accelerator
-                  </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Boost your rankings, attract more patient inquiries, and
-                    stay discoverable.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-8">
-                <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <MdOutlineWeb className="text-white" size={22} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Website Revamp - Conversion Optimized
-                  </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Turn your website into a high-performing appointment
-                    generator.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-8">
-                <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <MdOutlineLocationOn className="text-white" size={22} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Local Visibility & GMB Dominance System
-                  </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Appear at the top for critical “near me” and local search
-                    queries.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-8">
-                <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-xl flex items-center justify-center">
-                    <MdOutlineEventRepeat className="text-white" size={22} />
-                  </div>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-2">
-                    Automated Patient Capture & Follow-Up Funnel
-                  </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Instant lead capture + follow-up automation to increase
-                    appointments.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* CTA Button */}
-          <div className="flex items-center gap-24 mt-7">
-            <button className="bg-blue-600 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg">
-              <span className="">Explore All Services</span>
-              <span className="p-2 bg-blue-400 rounded-full">
-                <FaLongArrowAltRight size={20} />
-              </span>
-            </button>
-
-            {/* Happy Users */}
-            <div className="flex items-center space-x-4">
-              <div className="flex -space-x-3">
-                <Image
-                  src="/img-client1.png"
-                  alt="User 1"
-                  className="w-12 h-12 rounded-full border-2 border-black"
-                  width={48}
-                  height={48}
-                />
-                <Image
-                  src="/img-client2.png"
-                  alt="User 2"
-                  className="w-12 h-12 rounded-full border-2 border-black"
-                  width={48}
-                  height={48}
-                />
-                <Image
-                  src="/img-video1.jpg"
-                  alt="User 3"
-                  className="w-12 h-12 rounded-full border-2 border-black"
-                  width={48}
-                  height={48}
-                />
-              </div>
-              <div>
-                <p className="text-2xl font-bold text-white">12000</p>
-                <p className="text-gray-400 text-sm">Happy users</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Growth Section */}
+      <GrowthSection pillars={pillars} />
 
       {/* Process Section */}
-      <section className="bg-[#F8FAFC] py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern
-                id="grid"
-                width="100"
-                height="100"
-                patternUnits="userSpaceOnUse"
-              >
-                <path
-                  d="M 100 0 L 0 0 0 100"
-                  fill="none"
-                  stroke="gray"
-                  strokeWidth="0.5"
-                />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
-        </div>
-
-        <div className="mx-auto relative z-10">
+      <section className="py-16 px-36">
+        <div className="mx-auto">
+          {/* Header Badge */}
           <div className="text-center mb-8">
             <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
               <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
@@ -638,258 +387,108 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <h1 className="text-5xl lg:text-7xl font-bold text-center text-gray-900 mb-12 leading-tight">
-            Our 4-Step Clinic <span className="inline-block">🎩</span>
+          {/* Main Heading with Emojis */}
+          <h1 className="text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-10 leading-tight">
+            Our 4-Step Clinic <span className="inline-block"></span>
             <br />
-            Growth System
+            <span className="inline-block"></span> Growth System
           </h1>
 
-          {/* Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-">
-            <div className="bg-white rounded-xl p-8  border-gray-200 hover:shadow-xl transition-shadow">
-              <div className="mb-6">
-                <span className="inline-block bg-gray-100 text-gray-900 text-sm font-semibold px-4 py-2 rounded-full">
-                  Step 1
-                </span>
-              </div>
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-gray-900">Audit</span>
-              </div>
-              <p className="text-gray-600 text-base mb-7 border-b pb-4 border-gray-300">
-                We analyze your online presence
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>competition</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>reputation</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>website</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>funnels</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>Google visibility</span>
-                </li>
-              </ul>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
-                Get Started
-              </button>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8  border-gray-200 hover:shadow-xl transition-shadow">
-              <div className="mb-6">
-                <span className="inline-block bg-white text-gray-900 text-sm font-semibold px-4 py-2 rounded-full">
-                  Step 2
-                </span>
-              </div>
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-gray-900">
-                  Strategy
-                </span>
-              </div>
-              <p className="text-gray-600 text-base mb-7 border-b pb-4 border-gray-300">
-                We analyze your online presence
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>competition</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>reputation</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>website</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>funnels</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>Google visibility</span>
-                </li>
-              </ul>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
-                Get Started
-              </button>
-            </div>
-            <div className="bg-white rounded-xl p-8  border-gray-200 hover:shadow-xl transition-shadow">
-              <div className="mb-6">
-                <span className="inline-block bg-gray-100 text-gray-900 text-sm font-semibold px-4 py-2 rounded-full">
-                  Step 3
-                </span>
-              </div>
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-gray-900">
-                  Implementation
-                </span>
-              </div>
-              <p className="text-gray-600 text-base mb-7 border-b pb-4 border-gray-300">
-                We analyze your online presence
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>competition</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>reputation</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>website</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>funnels</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>Google visibility</span>
-                </li>
-              </ul>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
-                Get Started
-              </button>
-            </div>
-            <div className="bg-gray-100 rounded-xl p-8  border-gray-200 hover:shadow-xl transition-shadow">
-              <div className="mb-6">
-                <span className="inline-block bg-white text-gray-900 text-sm font-semibold px-4 py-2 rounded-full">
-                  Step 4
-                </span>
-              </div>
-              <div className="mb-4">
-                <span className="text-4xl font-bold text-gray-900">
-                  {" "}
-                  <span>Optimization</span>
-                </span>
-              </div>
-              <p className="text-gray-600 text-base mb-7 border-b pb-4 border-gray-300">
-                We analyze your online presence
-              </p>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>competition</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>reputation</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>website</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>funnels</span>
-                </li>
-                <li className="flex items-center space-x-2 text-gray-700">
-                  <span className="text-blue-600">✓</span>
-                  <span>Google visibility</span>
-                </li>
-              </ul>
-              <button className="w-full bg-gray-900 text-white py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors">
-                Get Started
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Case Studies */}
-      <section className="bg-linear-to-br from-gray-50 via-blue-50 to-purple-50 py-20 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: `linear-gradient(rgba(0,0,0,0.05) 1px, transparent 1px),
-                          linear-gradient(90deg, rgba(0,0,0,0.05) 1px, transparent 1px)`,
-              backgroundSize: "100px 100px",
-            }}
-          ></div>
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-8">
-            <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
-              <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
-                CASE STUDIES
-              </span>
-            </div>
-          </div>
-
-          <h1 className="text-5xl lg:text-7xl font-bold text-center text-gray-900 mb-20 leading-tight">
-            Real Doctors. Real <span className="inline-block">🚀</span> Results.
-            Real Growth
-          </h1>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogPosts.map((post, index) => (
-              <article
-                key={index}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2"
+          {/* Carousel Container */}
+          <div className="relative">
+            {/* Slides */}
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-in-out"
+                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {/* Image */}
-                <div className="relative h-80 overflow-hidden">
-                  <Image
-                    src={post.image}
-                    alt={post.title}
-                    className="w-full h-full object-cover"
-                    width={400}
-                    height={320}
-                  />
-                </div>
+                {steps.map((step, index) => (
+                  <div
+                    key={index}
+                    className="w-full shrink-0 px-16 py-3 bg-[#f7f8fa] rounded-3xl"
+                  >
+                    <div className="flex justify-between items-center gap-12">
+                      {/* Left Content */}
+                      <div className="">
+                        <p className="text-2xl md:text-3xl leading-relaxed text-gray-900 font-medium">
+                          {step.title}
+                        </p>
+                        <p className="text-gray-700 text-lg mt-4">
+                          {step.description}
+                        </p>
+                        <button className="mt-8 bg-blue-600 gap-5 text-white px-6 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg">
+                          Get a Free Clinic Growth Audit
+                          <span className="p-2 bg-blue-400 rounded-full">
+                            <FiArrowRight size={16} className="text-white" />
+                          </span>
+                        </button>
+                      </div>
 
-                {/* Content */}
-                <div className="p-8">
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-sm font-bold text-gray-900 uppercase tracking-wide">
-                      {post.category}
-                    </span>
-                    <span className="text-sm text-gray-500 uppercase">
-                      {post.date}
-                    </span>
+                      {/* Right Image */}
+                      <div className="">
+                        <Image
+                          src="/process.png" // replace with actual image
+                          alt="Testimonial"
+                          width={300}
+                          height={200}
+                          className="object cover"
+                        />
+                      </div>
+                    </div>
                   </div>
+                ))}
+              </div>
+            </div>
 
-                  <h2 className="text-2xl font-bold text-gray-900 leading-tight">
-                    {post.title}
-                  </h2>
-                  <p className="text-gray-600 text-base mt-4">
-                    {post.description}
-                  </p>
-                </div>
-              </article>
-            ))}
+            {/* Navigation Arrows */}
+            <div className="flex items-center justify-center space-x-4 mt-12">
+              <button
+                onClick={prevSlide}
+                className="w-14 h-14 rounded-full border-2 border-gray-300 flex items-center justify-center hover:border-gray-900 hover:bg-gray-50 transition-all disabled:opacity-30"
+                disabled={currentSlide === 0}
+              >
+                <FiChevronLeft size={24} className="text-gray-900" />
+              </button>
+              <button
+                onClick={nextSlide}
+                className="w-14 h-14 rounded-full border-2 border-gray-900 bg-white flex items-center justify-center hover:bg-gray-900 hover:text-white transition-all disabled:opacity-30"
+                disabled={currentSlide === steps.length - 1}
+              >
+                <FiChevronRight size={24} />
+              </button>
+            </div>
+
+            {/* Slide Indicators */}
+            <div className="flex items-center justify-center space-x-2 mt-6">
+              {steps.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentSlide(index)}
+                  className={`h-2 rounded-full transition-all ${
+                    currentSlide === index
+                      ? "w-8 bg-gray-900"
+                      : "w-2 bg-gray-300"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="bg-black text-white py-16 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="bg-black text-white py-16 px-16">
+        <div className="mx-auto">
+          <div className="flex gap-24 items-center">
             {/* Left Column */}
-            <div>
+            <div className="w-[55%]">
               <div className="inline-block border border-white rounded-full px-6 py-3 mb-8">
                 <span className="text-sm font-medium uppercase tracking-wide">
                   WHY CHOOSE US?
                 </span>
               </div>
 
-              <h1 className="text-4xl lg:text-6xl font-bold mb-12 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-12 leading-tight">
                 Built for Doctors. Proven Across Specialties.
               </h1>
 
@@ -897,25 +496,25 @@ export default function LandingPage() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-green-400 shrink-0" size={24} />
-                  <span className="text-xl text-gray-300">
+                  <span className="text-lg text-gray-300">
                     Healthcare-focused growth agency
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-green-400 shrink-0" size={24} />
-                  <span className="text-xl text-gray-300">
+                  <span className="text-lg text-gray-300">
                     AI-powered optimization + human strategy
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-green-400 shrink-0" size={24} />
-                  <span className="text-xl text-gray-300">
+                  <span className="text-lg text-gray-300">
                     Customized plans for every specialty
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-green-400 shrink-0" size={24} />
-                  <span className="text-xl text-gray-300">
+                  <span className="text-lg text-gray-300">
                     Mentorship from Avi Arya
                   </span>
                 </div>
@@ -937,7 +536,7 @@ export default function LandingPage() {
             </div>
 
             {/* Right Column - Pricing Card */}
-            <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-3xl p-10 shadow-2xl border border-gray-700">
+            <div className="bg-linear-to-br from-gray-900 to-gray-800 rounded-3xl p-10 shadow-2xl border border-gray-700 w-[40%]">
               <h2 className="text-5xl font-bold mb-4">Standard</h2>
               <p className="text-gray-400 text-lg mb-8">
                 Send up to 6,000 emails each month.
@@ -1126,7 +725,7 @@ export default function LandingPage() {
                 className="bg-[#f7f8fa] rounded-xl p-7 transition-shadow relative pl-12"
               >
                 <blockquote className="text-gray-700 text-xl leading-relaxed mb-12">
-                  &quot; {testimonial.quote} &quot; 
+                  &quot; {testimonial.quote} &quot;
                 </blockquote>
 
                 <div className="flex items-center justify-between">
@@ -1229,120 +828,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-black overflow-hidden flex items-center justify-center px-6 py-16">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-linear-to-br from-black via-gray-900 to-black"></div>
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-0 left-0 w-[150%] h-full bg-linear-to-br from-black via-gray-800 to-black transform -rotate-12 origin-top-left"></div>
-          </div>
-          <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-linear-to-tl from-green-900/30 to-transparent blur-3xl"></div>
-          <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-linear-to-br from-green-900/20 to-transparent blur-3xl"></div>
-        </div>
-
-        {/* Left Card - Transfer Graph */}
-        <div className="absolute left-1 bottom-10 lg:bottom-20 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
-          <div className="bg-linear-to-br from-blue-400 to-blue-500 rounded-3xl p-8 w-64 h-64 shadow-2xl">
-            <div className="text-white mb-4">
-              <div className="text-sm font-semibold mb-1">Transfer</div>
-              <div className="text-xs">Month</div>
-            </div>
-            <svg viewBox="0 0 200 120" className="w-full h-32 mt-8">
-              <polyline
-                points="0,100 40,80 80,90 120,60 160,70 200,40"
-                fill="none"
-                stroke="rgba(0,0,0,0.3)"
-                strokeWidth="3"
-                strokeLinecap="round"
-              />
-              <polyline
-                points="0,100 40,80 80,90 120,60 160,70 200,40"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
-              <circle cx="40" cy="80" r="4" fill="white" />
-              <circle cx="120" cy="60" r="4" fill="white" />
-            </svg>
-            <div className="text-white font-bold text-lg mt-4">+8.24%</div>
-          </div>
-        </div>
-
-        {/* Right Card - Expenses Donut Chart */}
-        <div className="absolute right-1 top-20 lg:top-22 transform rotate-8 hover:rotate-0 transition-transform duration-300">
-          <div className="bg-linear-to-br from-gray-900 to-black rounded-3xl p-6 w-56 shadow-2xl border border-gray-800">
-            <div className="flex items-center justify-between mb-4">
-              <div>
-                <div className="text-white text-3xl font-bold">82.5k</div>
-                <div className="text-gray-400 text-sm">Expenses</div>
-              </div>
-              {/* Donut Chart */}
-              <svg viewBox="0 0 100 100" className="w-20 h-20">
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="none"
-                  stroke="rgba(59, 130, 246, 0.2)" // light blue
-                  strokeWidth="12"
-                />
-                <circle
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="none"
-                  stroke="rgb(59, 130, 246)" // blue
-                  strokeWidth="12"
-                  strokeDasharray="175 251"
-                  strokeDashoffset="0"
-                  transform="rotate(-90 50 50)"
-                  strokeLinecap="round"
-                />
-                <text
-                  x="50"
-                  y="55"
-                  textAnchor="middle"
-                  className="text-xl font-bold fill-white"
-                >
-                  78%
-                </text>
-              </svg>
-            </div>
-            <div className="text-gray-400 text-xs">
-              <div className="mb-1">$21k Expenses</div>
-              <div>than...</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Content */}
-        <div className="relative z-10 text-center max-w-5xl mx-auto">
-          {/* Badge */}
-          <div className="inline-block border border-white rounded-full px-8 py-3 mb-12">
-            <span className="text-sm font-medium text-white uppercase tracking-wide">
-              Conversion Booster
-            </span>
-          </div>
-
-          <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
-            Ready to Grow Your Clinic?
-            <br />
-          </h1>
-
-          <p className="text-gray-400 text-lg lg:text-xl mb-12 max-w-3xl mx-auto leading-relaxed">
-            Book your free strategy session and get a personalized plan for your
-            specialty & city.
-          </p>
-
-          {/* CTA Button */}
-          <button className="bg-blue-400 text-white text-lg px-8 py-3 rounded-full hover:bg-blue-300 transition-all transform hover:scale-105 flex items-center space-x-3 mx-auto shadow-lg">
-            <span>Book Free strategy Session</span>
-            <div className="bg-white rounded-full p-2">
-              <FaLongArrowAltRight color="black" size={20} />
-            </div>
-          </button>
-        </div>
-      </section>
+      <FinalCTA />
     </main>
   );
 }

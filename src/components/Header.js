@@ -61,7 +61,7 @@ export default function Header() {
                     Our Services
                   </Link>
                   <Link
-                    href="/service-detail"
+                    href="/service-details"
                     className="block px-4 py-2 text-white hover:underline transition-all"
                   >
                     Service Detail
