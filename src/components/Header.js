@@ -7,7 +7,7 @@ export default function Header() {
   const [isServiceOpen, setIsServiceOpen] = useState(false);
 
   return (
-    <header className="absolute w-[96%] z-10 bg-white rounded-full shadow-md m-7">
+    <header className="absolute w-[96%] z-10 bg-white rounded-full shadow-xl shadow-[#D6E2FF] m-7">
       <div className="mx-auto px-4">
         <div className="flex justify-between items-center h-18">
           {/* Logo */}

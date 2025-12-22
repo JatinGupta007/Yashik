@@ -26,7 +26,7 @@ export default function PromiseSection({ data }) {
                 key={index}
                 className="bg-white rounded-xl w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
               >
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-[#D0DFFE] rounded-2xl flex items-center justify-center mb-6">
                   {point.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 leading-tight">
@@ -37,7 +37,7 @@ export default function PromiseSection({ data }) {
           </div>
 
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-black via-gray-900 to-green-500">
+            <div className="rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-black via-gray-900 to-blue-500">
               <Image
                 src={data.image}
                 alt="Happy customer"
@@ -50,8 +50,8 @@ export default function PromiseSection({ data }) {
             {/* Floating ROI Card */}
             <div className="absolute bottom-1 left-18 bg-white rounded-2xl shadow-2xl p-6 max-w-xs">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                  <FiTrendingUp className="text-green-600" size={20} />
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                  <FiTrendingUp className="text-blue-600" size={20} />
                 </div>
                 <span className="text-xl font-bold text-gray-900">
                   ROI Rates
@@ -59,7 +59,7 @@ export default function PromiseSection({ data }) {
               </div>
               <div className="flex items-baseline space-x-2 mb-2">
                 <span className="text-4xl font-bold text-gray-900">27,127</span>
-                <span className="text-green-600 text-sm font-semibold bg-green-100 px-2 py-1 rounded">
+                <span className="text-blue-600 text-sm font-semibold bg-blue-100 px-2 py-1 rounded">
                   ↑ 12%
                 </span>
                 <span className="text-gray-500 text-sm">vs last years</span>
@@ -77,7 +77,7 @@ export default function PromiseSection({ data }) {
                 key={index}
                 className="bg-white rounded-xl w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
               >
-                <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-[#D0DFFE] rounded-2xl flex items-center justify-center mb-6">
                   {point.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 leading-tight">
@@ -89,7 +89,7 @@ export default function PromiseSection({ data }) {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-10">
+        {/* <div className="text-center mt-10">
           <div className="inline-block bg-white rounded-full px-8 py-4 shadow-lg border border-gray-200">
             <span className="text-gray-700 text-lg">
               See How Our System Works.{" "}
@@ -101,7 +101,7 @@ export default function PromiseSection({ data }) {
               </a>
             </span>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
