@@ -1,99 +1,129 @@
-"use client"
+"use client";
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { HiMenu, HiX } from "react-icons/hi";
 
 export default function Header() {
-  const [isServiceOpen, setIsServiceOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute w-[96%] z-10 bg-white rounded-full shadow-xl shadow-[#D6E2FF] m-7">
-      <div className="mx-auto px-4">
-        <div className="flex justify-between items-center h-18">
+    <header className="absolute w-[96%] z-50 bg-white rounded-full shadow-xl shadow-blue-100 m-2 md:m-4 lg:m-7">
+      <div className="mx-auto px-4 md:px-6">
+        <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
-          <div className="flex items-center">
-            <Image src="/website_logo.png" alt="Logo" width={250} height={50} />
+          <div className="flex items-center z-50">
+            <Image
+              src="/website_logo.png"
+              alt="Logo"
+              width={180}
+              height={40}
+              className="w-32 md:w-48 lg:w-56 h-auto"
+            />
           </div>
 
-          {/* Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8 xl:space-x-10 absolute left-1/2 transform -translate-x-1/2">
             <Link
               href="/"
-              className="text-gray-700 hover:text-gray-900 transition-colors relative group"
+              className="text-gray-700 hover:text-gray-900 transition-colors relative group font-medium"
             >
               Home
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
-
-            {/* Service Dropdown */}
-            <div
-              className="relative group h-20 flex items-center"
-              onMouseEnter={() => setIsServiceOpen(true)}
-              onMouseLeave={() => setIsServiceOpen(false)}
-            >
-              <button className="text-gray-700 hover:text-gray-900 transition-colors flex items-center space-x-1 relative">
-                <span>Service</span>
-                <svg
-                  className={`w-4 h-4 transition-transform ${
-                    isServiceOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-300"></span>
-              </button>
-
-              {/* Dropdown Menu */}
-              {isServiceOpen && (
-                <div className="absolute left-0 top-full w-48 bg-black rounded-lg shadow-lg py-2 z-50">
-                  <Link
-                    href="/our-services"
-                    className="block px-4 py-2 text-white hover:underline transition-all"
-                  >
-                    Our Services
-                  </Link>
-                  <Link
-                    href="/service-details"
-                    className="block px-4 py-2 text-white hover:underline transition-all"
-                  >
-                    Service Detail
-                  </Link>
-                </div>
-              )}
-            </div>
 
             <Link
               href="/about"
-              className="text-gray-700 hover:text-gray-900 transition-colors relative group"
+              className="text-gray-700 hover:text-gray-900 transition-colors relative group font-medium"
             >
               About
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
+            </Link>
+
+            <Link
+              href="/service-details"
+              className="text-gray-700 hover:text-gray-900 transition-colors relative group font-medium"
+            >
+              Service
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
 
             <Link
               href="/contact"
-              className="text-gray-700 hover:text-gray-900 transition-colors relative group"
+              className="text-gray-700 hover:text-gray-900 transition-colors relative group font-medium"
             >
               Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gray-900 group-hover:w-full transition-all duration-300"></span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
             </Link>
           </nav>
 
-          {/* Subscribe Button */}
-          <div>
-            <button className="bg-black text-white px-6 py-2.5 rounded-full hover:bg-gray-800 transition-colors font-medium">
+          {/* Subscribe Button - Desktop */}
+          <div className="hidden lg:block">
+            <button className="bg-black text-white px-6 py-2.5 rounded-full hover:bg-blue-600 transition-all duration-300 font-medium transform hover:scale-105 shadow-lg hover:shadow-xl">
               Subscribe
             </button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden text-gray-700 hover:text-gray-900 transition-colors z-50"
+          >
+            {isMobileMenuOpen ? (
+              <HiX className="w-7 h-7" />
+            ) : (
+              <HiMenu className="w-7 h-7" />
+            )}
+          </button>
         </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`lg:hidden h-130 fixed inset-0 bg-white z-40 transition-all duration-300 ${
+          isMobileMenuOpen
+            ? "opacity-100 visible"
+            : "opacity-0 invisible pointer-events-none"
+        }`}
+      >
+        <nav className="flex flex-col justify-center items-center space-y-8 px-6 py-16">
+          <Link
+            href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-2xl text-gray-700 hover:text-blue-600 transition-colors font-medium"
+          >
+            Home
+          </Link>
+
+          <Link
+            href="/service-details"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-2xl text-gray-700 hover:text-blue-600 transition-colors font-medium"
+          >
+            Services
+          </Link>
+
+          <Link
+            href="/about"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-2xl text-gray-700 hover:text-blue-600 transition-colors font-medium"
+          >
+            About
+          </Link>
+
+          <Link
+            href="/contact"
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-2xl text-gray-700 hover:text-blue-600 transition-colors font-medium"
+          >
+            Contact
+          </Link>
+
+          {/* Subscribe Button - Mobile */}
+          <button className="bg-black text-white px-8 py-3 rounded-full hover:bg-blue-600 transition-all duration-300 font-medium transform hover:scale-105 shadow-lg text-lg mt-4">
+            Subscribe
+          </button>
+        </nav>
       </div>
     </header>
   );

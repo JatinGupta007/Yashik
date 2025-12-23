@@ -1,103 +1,34 @@
+import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi2";
 
 export default function FinalCTA() {
   return (
-    <section className="relative bg-linear-to-b from-[#155DFC21] via-[#F8FAFC00] to-[#155DFC21] overflow-hidden flex items-center justify-center px-6 py-16">
+    <section className="relative bg-linear-to-b from-[#155DFC21] via-[#F8FAFC00] to-[#155DFC21] flex items-center justify-center px-6 py-16 overflow-hidden">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-linear-to-br from-black via-gray-900 to-black"></div>
-        <div className="absolute top-0 left-0 w-full h-full">
-          <div className="absolute top-0 left-0 w-[150%] h-full bg-linear-to-br from-black via-gray-800 to-black transform -rotate-12 origin-top-left"></div>
-        </div>
         <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-linear-to-tl from-green-900/30 to-transparent blur-3xl"></div>
         <div className="absolute top-0 left-0 w-1/3 h-1/3 bg-linear-to-br from-green-900/20 to-transparent blur-3xl"></div>
       </div>
 
       {/* Left Card - Transfer Graph */}
-      <div className="absolute left-1 bottom-10 lg:bottom-20 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
-        <div className="bg-linear-to-br from-blue-400 to-blue-500 rounded-3xl p-8 w-64 h-64 shadow-2xl">
-          <div className="text-white mb-4">
-            <div className="text-sm font-semibold mb-1">Transfer</div>
-            <div className="text-xs">Month</div>
-          </div>
-          <svg viewBox="0 0 200 120" className="w-full h-32 mt-8">
-            <polyline
-              points="0,100 40,80 80,90 120,60 160,70 200,40"
-              fill="none"
-              stroke="rgba(0,0,0,0.3)"
-              strokeWidth="3"
-              strokeLinecap="round"
-            />
-            <polyline
-              points="0,100 40,80 80,90 120,60 160,70 200,40"
-              fill="none"
-              stroke="white"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-            <circle cx="40" cy="80" r="4" fill="white" />
-            <circle cx="120" cy="60" r="4" fill="white" />
-          </svg>
-          <div className="text-white font-bold text-lg mt-4">+8.24%</div>
-        </div>
+      <div className="hidden md:block absolute left-1 bottom-1 lg:bottom-2 transform -rotate-6 hover:rotate-0 transition-transform duration-300">
+        <Image src="/cta3.png" width={300} height={200} alt="cta" />
       </div>
 
       {/* Right Card - Expenses Donut Chart */}
-      <div className="absolute right-1 top-20 lg:top-22 transform rotate-8 hover:rotate-0 transition-transform duration-300">
-        <div className="bg-linear-to-br from-gray-900 to-black rounded-3xl p-6 w-56 shadow-2xl border border-gray-800">
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <div className="text-white text-3xl font-bold">82.5k</div>
-              <div className="text-gray-400 text-sm">Expenses</div>
-            </div>
-            {/* Donut Chart */}
-            <svg viewBox="0 0 100 100" className="w-20 h-20">
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="none"
-                stroke="rgba(59, 130, 246, 0.2)" // light blue
-                strokeWidth="12"
-              />
-              <circle
-                cx="50"
-                cy="50"
-                r="40"
-                fill="none"
-                stroke="rgb(59, 130, 246)" // blue
-                strokeWidth="12"
-                strokeDasharray="175 251"
-                strokeDashoffset="0"
-                transform="rotate(-90 50 50)"
-                strokeLinecap="round"
-              />
-              <text
-                x="50"
-                y="55"
-                textAnchor="middle"
-                className="text-xl font-bold fill-white"
-              >
-                78%
-              </text>
-            </svg>
-          </div>
-          <div className="text-gray-400 text-xs">
-            <div className="mb-1">$21k Expenses</div>
-            <div>than...</div>
-          </div>
-        </div>
+      <div className="hidden md:block absolute right-1 top-2 lg:top-2 transform rotate-8 hover:rotate-0 transition-transform duration-300">
+        <Image src="/cta2.png" width={300} height={200} alt="cta" />
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 text-center max-w-5xl mx-auto">
         {/* Badge */}
-        <div className="inline-block border border-white rounded-full px-8 py-3 mb-12">
-          <span className="text-sm font-medium text-white uppercase tracking-wide">
+        <div className="inline-block border border-gray-300 shadow rounded-full px-8 py-3 mb-12">
+          <span className="text-sm font-medium uppercase tracking-wide">
             Conversion Booster
           </span>
         </div>
 
-        <h1 className="text-5xl lg:text-7xl font-bold text-white mb-8 leading-tight">
+        <h1 className="text-5xl lg:text-7xl font-bold mb-8 leading-tight">
           Ready to Grow Your Clinic?
           <br />
         </h1>

@@ -1,15 +1,15 @@
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoIosMail, IoLogoWhatsapp } from "react-icons/io";
-import { FaFacebook, FaLinkedin, FaSquareTwitter} from "react-icons/fa6";
+import { FaFacebook, FaLinkedin, FaSquareTwitter, FaSquareWhatsapp} from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 text-gray-700 px-6 md:px-16 py-12">
+    <footer className="bg-gray-50 text-gray-700 px-4 md:px-8 lg:px-16 py-12">
       <div className="mx-auto">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-42 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-42 mb-12">
           {/* Left Column - Logo and Description */}
           <div className="md:col-span-1">
             <div className="flex items-center h-16 mb-4">
@@ -44,6 +44,12 @@ export default function Footer() {
               >
                 <FaSquareTwitter className="w-5 h-5" />
               </Link>
+              <Link
+                href="#"
+                className="w-12 h-12 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-200 transition-colors"
+              >
+                <FaSquareWhatsapp className="w-5 h-5" />
+              </Link>
             </div>
           </div>
 
@@ -63,10 +69,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/our-services"
+                  href="/service-details"
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
-                  Our Services
+                  Services
                 </Link>
               </li>
               <li>
@@ -128,11 +134,11 @@ export default function Footer() {
         <hr className="border-t border-gray-300 mb-6" />
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center">
+        <div className="flex flex-col md:flex-row justify-center items-center">
           <div className="flex items-center space-x-4 mb-4 md:mb-0">
             <Link
               href="#"
-              className="bg-gray-900 text-white px-6 py-2.5 rounded-full hover:bg-gray-800 transition-colors font-medium flex items-center space-x-2"
+              className="bg-[#155DFC] text-white px-6 py-2.5 rounded-full hover:bg-blue-800 transition-colors font-medium flex items-center space-x-2"
             >
               <span>Subscribe</span>
             </Link>

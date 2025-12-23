@@ -2,29 +2,29 @@ import Link from "next/link";
 
 export default function TermsAndConditions() {
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div>
       {/* Hero Section */}
-      <section className="bg-black text-white py-20 px-6 flex flex-col items-center justify-center relative overflow-hidden mb-16 min-h-screen">
+      <section className="bg-linear-to-b from-blue-50 via-[#EFF6FF] to-[#FFFFFF10] py-16 px-6 flex flex-col items-center justify-center relative pt-29">
         <div className="absolute inset-0 bg-jet-black/10"></div>
         <div className="relative max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-28">
-            Terms & Conditions
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-12 mt-28">
+            Terms & <span className="text-blue-600">Conditions</span>
           </h1>
 
           <div className="text-center">
-            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl md:text-2xl mb-12 max-w-2xl mx-auto opacity-90 text-gray-500">
               At Yashik Yadav & Co., we value your trust and are committed to
               protecting your privacy.
             </p>
           </div>
-          <p className="text-lg md:text-xl mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed text-gray-500">
             Last Updated: 15-12-2025
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <main className="mx-auto px-4 md:px-16 pb-12">
+      <main className="mx-auto px-4 md:px-8 lg:px-16 pb-12 text-lg">
         <div className="bg-white rounded-lg shadow-md p-8">
           {/* Introduction */}
           <div className="mb-8">
@@ -41,7 +41,7 @@ export default function TermsAndConditions() {
 
           {/* Section 1 */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
               1. Use of Website
             </h2>
             <p className="text-gray-700 mb-3">
@@ -66,7 +66,7 @@ export default function TermsAndConditions() {
 
           {/* Section 2 */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
               2. Services
             </h2>
             <p className="text-gray-700 mb-3">
@@ -90,7 +90,7 @@ export default function TermsAndConditions() {
 
           {/* Section 3 */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
               3. Intellectual Property
             </h2>
             <p className="text-gray-700 mb-3">
@@ -119,7 +119,7 @@ export default function TermsAndConditions() {
 
           {/* Section 4 */}
           <section className="mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4 pb-2 border-b-2 border-blue-600">
               4. Payments & Refunds
             </h2>
             <ul className="list-disc list-inside space-y-3 text-gray-700 ml-4">
@@ -156,7 +156,7 @@ export default function TermsAndConditions() {
                 Conditions, please contact us.
               </p>
               <Link href="/contact">
-                <button className="bg-black text-white font-semibold px-6 py-3 rounded-lg hover:scale-105 transition-colors">
+                <button className="bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:scale-105 transition-colors">
                   Contact Us
                 </button>
               </Link>

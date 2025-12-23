@@ -1,5 +1,5 @@
 import FinalCTA from "@/components/FinalCTA";
-import GrowthSection from "@/components/GrowthSection";
+
 import PromiseSection from "@/components/PromiseSection";
 import Image from "next/image";
 import { HiArrowRight } from "react-icons/hi";
@@ -21,33 +21,10 @@ import {
   FiCheckCircle,
   FiUsers,
 } from "react-icons/fi";
+import ProcessSection from "@/components/GrowthSection";
+import FounderSection from "@/components/FounderSection";
+import SixCoreServices from "@/components/ServeceDetails/SixCoreServices";
 
-const pillars = [
-  {
-    title: "360° Reputation Growth Engine",
-    desc: "Grow patient trust with more 5★ reviews and a strong, credible online presence across platforms.",
-  },
-  {
-    title: "AI-Powered SEO Accelerator",
-    desc: "Increase visibility for specialties, symptoms, and treatments to attract high-intent patient searches.",
-  },
-  {
-    title: "Website Revamp — Conversion Optimized",
-    desc: "Transform your website into a fast, mobile-friendly appointment booking machine.",
-  },
-  {
-    title: "Local Visibility & GMB Dominance System",
-    desc: "Rank at the top for “near me” and city-based searches where patients are ready to book.",
-  },
-  {
-    title: "Automated Patient Capture & Follow-Up Funnel",
-    desc: "Capture leads instantly and follow up automatically to maximize appointment conversions.",
-  },
-  {
-    title: "Clinic Growth Intelligence Dashboard",
-    desc: "Track SEO, calls, inquiries, conversions, and overall growth in one real-time dashboard.",
-  },
-];
 
 const promiseData = {
   subtitle: "OUR VALUES",
@@ -55,15 +32,15 @@ const promiseData = {
 
   leftPoints: [
     {
-      icon: <FiEye className="text-white" size={28} />,
+      icon: <FiEye className="text-blue-600" size={28} />,
       desc: "Transparency: No hidden metrics. Real results only.",
     },
     {
-      icon: <FiZap className="text-white" size={28} />,
+      icon: <FiZap className="text-blue-600" size={28} />,
       desc: "Speed: Execution over perfection.",
     },
     {
-      icon: <FiCompass className="text-white" size={28} />,
+      icon: <FiCompass className="text-blue-600" size={28} />,
       desc: "Clarity: Simple plans with zero jargon.",
     },
   ],
@@ -72,15 +49,15 @@ const promiseData = {
 
   rightPoints: [
     {
-      icon: <FiShield className="text-white" size={28} />,
+      icon: <FiShield className="text-blue-600" size={28} />,
       desc: "Ethics: Patient-first approach, always.",
     },
     {
-      icon: <FiCheckCircle className="text-white" size={28} />,
+      icon: <FiCheckCircle className="text-blue-600" size={28} />,
       desc: "Accountability: Weekly tracking and clear updates.",
     },
     {
-      icon: <FiUsers className="text-white" size={28} />,
+      icon: <FiUsers className="text-blue-600" size={28} />,
       desc: "Partnership: We grow with your clinic, not above it.",
     },
   ],
@@ -125,16 +102,14 @@ export default function HeroSection() {
     <main>
       {/* Hero section */}
       <section className="relative">
-        <div className="mx-auto px-6 pt-24 pb-16 text-center bg-linear-to-br from-blue-50 via-blue-100 to-blue-100">
-          {/* Badge */}
-          <div className="mt-16 inline-flex items-center px-4 py-1 rounded-full border border-blue-300 bg-white text-sm font-medium text-blue-700 mb-6">
-            ABOUT COMPANY
-          </div>
-
+        <div className="mx-auto px-6 pt-24 text-center bg-linear-to-b from-blue-50 via-blue-100 to-white">
           {/* Headline */}
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight mb-6 mt-24">
             We Help Doctors Build <br className="hidden md:block" />
-            Visibility, Authority & Predictable{" "}
+            <span className="text-[#155DFC]">
+              {" "}
+              Visibility, Authority & Predictable{" "}
+            </span>
             <br className="hidden md:block" />
             Patient Flow
           </h1>
@@ -147,101 +122,91 @@ export default function HeroSection() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-40">
-            <button className="flex items-center gap-3 px-8 py-4 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <button className="flex items-center gap-3 px-5 py-3 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700 transition">
               Book Free Strategy Session
               <span className="w-9 h-9 rounded-full bg-white text-blue-600 flex items-center justify-center">
                 <HiArrowRight />
               </span>
             </button>
-
-            <button className="flex items-center gap-3 px-8 py-4 rounded-full bg-white border border-gray-300 text-gray-900 font-semibold hover:bg-gray-100 transition">
-              Get Started
-              <span className="w-9 h-9 rounded-full bg-blue-600 text-white flex items-center justify-center">
-                <HiArrowRight />
-              </span>
-            </button>
-          </div>
-        </div>
-
-        {/* Bottom Image Section */}
-        <div className="relative z-10 max-w-5xl mx-auto -mt-40">
-          <div className="rounded-2xl overflow-hidden shadow-xl bg-white">
-            <Image
-              src="/about.png" // bottom image
-              alt="Dashboard Preview"
-              width={1400}
-              height={800}
-              className="w-full h-auto object-cover"
-              priority
-            />
           </div>
         </div>
       </section>
 
       {/*Story Section */}
-      <section className="py-16 px-16 bg-white">
+      <section className="py-16 px-6 md:px-8 lg:px-16 bg-white">
         <div className="max-w-7xl mx-auto space-y-28">
           {/* ROW 1 */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
-            <div>
-              <HiOutlineBadgeCheck className="text-blue-600 text-3xl mb-4" />
+          <section className="bg-white pt-16">
+            <div className="max-w-7xl mx-auto">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 lg:gap-24 ">
+                {/* Left Column - Image */}
+                <div className="order-2 lg:order-1">
+                  <div className="relative h-64 sm:h-80 md:h-96 lg:h-105 rounded-xl overflow-hidden shadow-xl">
+                    <Image
+                      src="/img-his.png" // Replace with your image path
+                      alt="Team discussion"
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                  </div>
+                </div>
 
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Why We Started This Agency
-              </h2>
+                {/* Right Column - Content */}
+                <div className="order-1 lg:order-2">
+                  {/* Badge */}
+                  <div className="inline-block mb-6 md:mb-8">
+                    <div className="bg-white border-2 border-blue-600 text-blue-600 rounded-full px-6 py-2 shadow-sm">
+                      <span className="text-xs md:text-sm font-bold tracking-wider uppercase">
+                        About Us
+                      </span>
+                    </div>
+                  </div>
 
-              <div className="space-y-5 text-gray-600 text-lg leading-relaxed">
-                <p>Most doctors don’t struggle because they lack skill.</p>
+                  {/* Main Title */}
+                  <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 md:mb-6 leading-tight">
+                    Why We Started This Agency
+                  </h2>
 
-                <p>
-                  They struggle because the online world doesn’t reflect how
-                  good they truly are.
-                </p>
+                  {/* Subtitle */}
+                  <p className="text-gray-600 text-base md:text-lg mb-6 md:mb-8 leading-relaxed">
+                    They struggle because the online world doesn&apos;t reflect
+                    how good they truly are.
+                  </p>
 
-                <p className="font-medium text-gray-800">
-                  Patients today choose doctors based on:
-                </p>
+                  {/* Mission Statement */}
+                  <div className="">
+                    <p className="text-gray-900 text-base md:text-lg font-bold">
+                      Yashik Yadav & Co. Was Created With A Single Mission:
+                    </p>
 
-                <ul className="space-y-2 pl-5 list-disc">
-                  <li>Who ranks higher</li>
-                  <li>Who has better reviews</li>
-                  <li>Who appears more trustworthy</li>
-                  <li>Who explains things better</li>
-                  <li>Who shows up consistently online</li>
-                </ul>
+                    <p className="text-gray-500 text-base md:text-lg leading-relaxed">
+                      to help doctors get the patients they deserve by giving
+                      their clinic the visibility, trust, and systems it
+                      deserves. We don&apos;t run random marketing activities.
+                      We build predictable clinic growth engines.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
-
-            {/* Right Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-lg">
-              <Image
-                src="/about1.png"
-                alt="Doctors collaboration"
-                width={700}
-                height={800}
-                className="w-full h-full object-cover"
-                priority
-              />
-            </div>
-          </div>
-
+          </section>
           {/* ROW 2 */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-lg order-2 lg:order-1">
+            <div className="relative h-64 sm:h-80 md:h-96 lg:h-125 rounded-xl overflow-hidden shadow-xl order-2">
               <Image
-                src="/about2.png"
-                alt="Clinic growth discussion"
-                width={700}
-                height={800}
-                className="w-full h-full object-cover"
+                src="/img2.png" // Replace with your image path
+                alt="Team discussion"
+                fill
+                className="object-cover"
+                priority
               />
             </div>
 
             {/* Right Content */}
-            <div className="order-1 lg:order-2">
+            <div className="order-1">
               <HiOutlineBadgeCheck className="text-blue-600 text-3xl mb-4" />
 
               <p className="mb-2">
@@ -291,219 +256,29 @@ export default function HeroSection() {
       </section>
 
       {/*Founder Section */}
-      <section className="relative bg-white py-16 px-16">
-        <div className="mx-auto">
-          {/* Top Badge */}
-          <div className="flex justify-center mb-6">
-            <span className="px-5 py-2 rounded-full border text-sm font-medium">
-              MEET THE FOUNDER
-            </span>
-          </div>
-
-          {/* Heading */}
-          <h2 className="text-center text-4xl md:text-5xl font-bold mb-10">
-            Meet "Yashik Yadav" <br />
-            Founder - Clinic Growth Strategist
-          </h2>
-
-          {/* Grid */}
-          <div className="flex gap-6 items-center">
-            {/* LEFT COLUMN */}
-            <div className="space-y-8 w-130">
-              <div className="border rounded-2xl p-6">
-                <p className="text-lg  mb-3">
-                  They were losing patients to competitors who
-                </p>
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Looked more credible online
-                </li>
-                <li className="text-[#6B7280] ml-4">
-                  Followed up with leads instantly
-                </li>
-                <Image
-                  src="/about4.png"
-                  width={240}
-                  height={50}
-                  alt="img"
-                  className="mx-auto mt-3"
-                />
-              </div>
-
-              <div className="border rounded-2xl p-6">
-                <Image
-                  src="/about3.png"
-                  width={150}
-                  height={50}
-                  alt="img"
-                  className="mx-auto mb-3"
-                />
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Had stronger reputations
-                </li>
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Followed up with leads instantly
-                </li>
-                <li className="list-none">
-                  So I built a simple, proven, repeatable system
-                </li>
-              </div>
-            </div>
-
-            {/* CENTER IMAGE */}
-            <div className="border rounded-3xl p-6 shadow-sm w-200">
-              <Image
-                src="/about2.png"
-                alt="Clinic Growth Dashboard"
-                width={300}
-                height={300}
-                className="object-cover mx-auto rounded-xl"
-              />
-              <h3 className="text-2xl font-semibold mt-6 mb-3">
-                About Yashik Yadav
-              </h3>
-              <p className="text-[#6B7280] mb-4">
-                Over the last 5+ years, I’ve worked exclusively with doctors
-                across India - from cardiologists and gynecologists to IVF
-                specialists and surgeons.
-              </p>
-              <p className="text-xl font-semibold mb-3">
-                I saw a repeated pattern:
-              </p>
-              <p className="text-[#6B7280] mb-1">
-                Doctors were great at what they did… but their online presence
-                didn’t represent it.
-              </p>
-              <p>
-                a 6-pillar clinic growth framework that delivers consistent
-                appointments month after month.
-              </p>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div className="space-y-6">
-              <div className="border rounded-2xl px-6 py-3">
-                <li className="mb-3 list-none text-lg">
-                  Founder Micro Credibility Stats
-                </li>
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Had stronger reputations
-                </li>
-
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Helped 150+ doctors grow their clinics
-                </li>
-                <Image
-                  src="/about3.png"
-                  width={150}
-                  height={50}
-                  alt="img"
-                  className="mx-auto mb-3"
-                />
-              </div>
-
-              <div className="border rounded-2xl p-6">
-                <Image
-                  src="/about4.png"
-                  width={210}
-                  height={50}
-                  alt="img"
-                  className="mx-auto mt-3"
-                />
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Experience in healthcare marketing, patient acquisition &
-                  automation
-                </li>
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Runs "Saaro Health", a healthcare technology + EMR company
-                </li>
-                <li className="text-[#6B7280] ml-4 mb-2">
-                  Trained under Avi Arya, one of India’s top digital agency
-                  mentors
-                </li>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FounderSection />
 
       {/* Deferences section */}
-      <section className="pb-16 pt-7 bg-white">
-        <div className="mx-auto px-16">
-          {/* Badge */}
-          <span className="inline-block mb-6 px-4 py-1 rounded-full border text-sm font-medium">
-            OUR DEFFERENCES
-          </span>
-
-          {/* Heading */}
-          <h2 className="text-4xl md:text-5xl font-bold mb-16 max-w-3xl leading-tight">
-            We Don’t “Do Marketing” - Build
-            <br />
-            Growth Foundations
-          </h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative">
-            {/* LEFT IMAGE */}
-            <div className="rounded-3xl sticky top-1">
-              <Image
-                src="/about2.png" // replace with your image
-                alt="Team discussion"
-                width={800}
-                height={900}
-                className="w-full h-full object-cover rounded-2xl"
-                priority
-              />
-            </div>
-
-            {/* RIGHT TIMELINE */}
-            <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-14 gap-y-20">
-                {items.map((item, i) => (
-                  <div key={i}>
-                    {/* Icon box */}
-                    <div className="w-14 h-14 rounded-xl bg-blue-500 flex items-center justify-center text-white text-2xl mb-6">
-                      {item.icon}
-                    </div>
-
-                    {/* Text */}
-                    <p className="text-lg font-semibold mb-2">{item.title}</p>
-                    <p className="text-gray-600 leading-relaxed">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-16">
-                <p className="text-xl font-semibold mb-1">
-                  Our goal is simple:
-                </p>
-                <p className="text-gray-600">
-                  Make you the most trusted doctor in your specialty and city.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/*Growth section */}
-      <GrowthSection pillars={pillars} />
+      <SixCoreServices />
 
       {/*social proof section */}
       <section className="py-16 bg-white">
-        <div className="mx-auto px-16">
+        <div className="mx-auto px-6 md:px-8 lg:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative">
             {/* LEFT CONTENT */}
-            <div className="sticky top-1">
+            <div className="lg:sticky top-1">
               {/* Badge */}
-              <span className="inline-block mb-6 px-4 py-1 rounded-full border text-sm font-medium">
+              <span className="inline-block mb-10 px-4 py-1 rounded-full border text-sm font-medium">
                 SOCIAL PROOFS
               </span>
 
               {/* Heading */}
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold mb-10 leading-tight">
                 Results That Speak <br /> for Themselves.
               </h2>
 
               {/* Description */}
-              <ul className="mb-10 space-y-2">
+              <ul className="mb-12 space-y-5">
                 <li className="text-lg text-gray-600 ">
                   “30+ monthly appointments consistently.” - Dr. R, Cardiologist
                 </li>
@@ -516,7 +291,7 @@ export default function HeroSection() {
               </ul>
 
               {/* CTA */}
-              <button className="inline-flex text-white items-center gap-5 px-7 py-3 rounded-full border font-medium bg-blue-600 transition">
+              <button className="inline-flex text-white items-center gap-5 px-5 text-lg py-3 rounded-full border font-medium bg-blue-600 transition">
                 View Case Studies
                 <span className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center">
                   <HiArrowRight />
@@ -546,8 +321,8 @@ export default function HeroSection() {
         </div>
       </section>
 
-      <PromiseSection data={promiseData} /> 
-      
+      <PromiseSection data={promiseData} />
+
       <FinalCTA />
     </main>
   );

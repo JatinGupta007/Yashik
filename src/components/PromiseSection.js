@@ -3,7 +3,7 @@ import { FiTrendingUp } from "react-icons/fi";
 
 export default function PromiseSection({ data }) {
   return (
-    <section className="py-16 px-16">
+    <section className="py-16 px-6 md:px-8 lg:px-16 ">
       <div className="mx-auto flex flex-col items-center">
         <div className="text-center mb-7">
           <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
@@ -13,18 +13,19 @@ export default function PromiseSection({ data }) {
           </div>
         </div>
 
-        <h1 className="text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12 leading-tight">
+        <h1 className="hidden md:block text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12 leading-tight">
           {data.title.split(" ").slice(0, 6).join(" ")}
-          <br />
+          <br className="hidden md:block" />
           {data.title.split(" ").slice(6, data.title.length).join(" ")}
         </h1>
+        <h1 className="text-2xl md:hidden font-bold text-center mb-12">{data.title}</h1>
 
-        <div className="flex gap-7">
+        <div className="flex flex-col md:flex-row gap-7">
           <div className="space-y-8">
             {data.leftPoints.map((point, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl md:w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
               >
                 <div className="w-16 h-16 bg-[#D0DFFE] rounded-2xl flex items-center justify-center mb-6">
                   {point.icon}
@@ -36,7 +37,7 @@ export default function PromiseSection({ data }) {
             ))}
           </div>
 
-          <div className="relative">
+          <div className="relative hidden lg:block">
             <div className="rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-black via-gray-900 to-blue-500">
               <Image
                 src={data.image}
@@ -75,7 +76,7 @@ export default function PromiseSection({ data }) {
             {data.rightPoints.map((point, index) => (
               <div
                 key={index}
-                className="bg-white rounded-xl w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                className="bg-white rounded-xl md:w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
               >
                 <div className="w-16 h-16 bg-[#D0DFFE] rounded-2xl flex items-center justify-center mb-6">
                   {point.icon}

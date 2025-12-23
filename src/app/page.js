@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef } from "react";
+
 import Image from "next/image";
 
 import {
@@ -13,7 +14,6 @@ import {
 } from "react-icons/hi";
 import { FaLongArrowAltRight, FaLightbulb } from "react-icons/fa";
 import { HiOutlineChartBar } from "react-icons/hi2";
-
 
 import {
   FiCheck,
@@ -36,7 +36,9 @@ import {
 
 import FinalCTA from "@/components/FinalCTA";
 import PromiseSection from "@/components/PromiseSection";
-
+import ProcessSection from "@/components/GrowthSection";
+import CaseStudiesSection from "@/components/CaseStudy";
+import FounderSection from "@/components/FounderSection";
 
 const features = [
   {
@@ -197,22 +199,20 @@ export default function LandingPage() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="flex flex-col items-center -z-5 mx-auto px-6 py-20 bg-linear-to-br from-gray-50 via-blue-50 to-purple-50 relative overflow-hidden">
+      <section className="flex flex-col items-center mx-auto px-6 md:px-6 py-12 md:py-20 bg-linear-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
         <div className="text-center mx-auto mt-24">
           <p className="text-gray-600 text-sm md:text-base font-medium mb-6 tracking-wide uppercase">
             Launch your AI website within a days
           </p>
 
-          <div className="max-w-4xl">
-            <h1 className="relative z-10 text-4xl md:text-4xl lg:text-6xl font-bold text-gray-900 leading-tight mb-8">
+          <div className="max-w-4xl px-6">
+            <h1 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 md:mb-8">
               Get 30-60{" "}
-              <span className="text-blue-600">Consistent Monthly</span>
-              Appointments
-              <br />
-              With a Complete{" "}
+              <span className="text-blue-600">Consistent Monthly</span>{" "}
+              Appointments With a Complete{" "}
               <span className="text-blue-600">Clinic Growth</span> System
             </h1>
-            <p className="text-[#6B7280] relative z-12 text-xl">
+            <p className="text-gray-600 text-base md:text-xl px-4 relative z-10">
               We help private-practice doctors build trust, increase visibility,
               convert more website visitors, and automate patient follow-ups
               using our 6-system growth framework.
@@ -220,47 +220,49 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="flex flex-wrap justify-around items-center  mb-12 text-sm md:text-base mt-16 w-full">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-6 mb-8 md:mb-12 text-sm md:text-base mt-8 md:mt-16 w-full px-4">
           <div className="flex items-center space-x-3">
-            <span className="border p-2.5 rounded-full flex items-center border-[#D1D5DC] bg-linear-to-r from-[#EDF3FF] to-[#D1D5DC] ">
+            <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
               <FiCheck className="text-blue-600 shrink-0" size={15} />
             </span>
-            <span className="text-gray-700 text-lg">
+            <span className="text-gray-700 text-base md:text-lg">
               4.9 Rating Across Doctors
             </span>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="border p-2.5 rounded-full flex items-center border-[#D1D5DC] bg-linear-to-r from-[#EDF3FF] to-[#D1D5DC] ">
+            <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
               <FiCheck className="text-blue-600 shrink-0" size={15} />
             </span>
-            <span className="text-gray-700 text-lg">
+            <span className="text-gray-700 text-base md:text-lg">
               150+ Clinics Supported
             </span>
           </div>
           <div className="flex items-center space-x-3">
-            <span className="border p-2.5 rounded-full flex items-center border-[#D1D5DC] bg-linear-to-r from-[#EDF3FF] to-[#D1D5DC] ">
+            <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
               <FiCheck className="text-blue-600 shrink-0" size={15} />
             </span>
-            <span className="text-gray-700 text-lg">Mentored by Avi Arya</span>
+            <span className="text-gray-700 text-base md:text-lg">
+              Mentored by Avi Arya
+            </span>
           </div>
-          <div className="flex items-center space-x-3">
-            <span className="border p-2.5 rounded-full flex items-center border-[#D1D5DC] bg-linear-to-r from-[#EDF3FF] to-[#D1D5DC] ">
+          <div className="items-center space-x-3 hidden lg:flex">
+            <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
               <FiCheck className="text-blue-600 shrink-0" size={15} />
             </span>
-            <span className="text-gray-700 text-lg">
+            <span className="text-gray-700 text-base md:text-lg">
               Proven 6-System Clinic Growth Model
             </span>
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-8">
-          <button className="bg-blue-600 text-white px-5 py-2.5 rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-center space-x-4 shadow-lg">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 px-4 w-full max-w-2xl">
+          <button className="bg-blue-600 text-white px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-[16px] rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-between space-x-4 shadow-lg w-full sm:w-auto">
             <span>Book Your Free Strategy Session</span>
             <span className="p-2 bg-blue-500 rounded-full">
               <FaLongArrowAltRight size={20} />
             </span>
           </button>
-          <button className="bg-[#111827] text-white px-5 py-2.5 rounded-full font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 flex items-center justify-center space-x-4 shadow-lg">
+          <button className="bg-gray-900 text-white px-4 py-2 md:px-6 text-sm md:py-2.5 md:text-[16px] rounded-full font-semibold hover:bg-gray-800 transition-all transform hover:scale-105 flex justify-between items-center space-x-4 shadow-lg w-full sm:w-auto">
             <span>See Real Results</span>
             <span className="p-2 bg-blue-500 rounded-full">
               <FaLongArrowAltRight size={20} />
@@ -268,31 +270,38 @@ export default function LandingPage() {
           </button>
         </div>
 
-        {/* Sales Performance Card */}
-        <div className="absolute left-0 md:-left-10 top-40 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+        {/* Sales Performance Card - Hidden on mobile */}
+        <div className="hidden md:block absolute left-0 md:-left-1 top-50 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
           <Image
-            src="/home1.png"
+            src="/hero2.png"
             alt="Sales Performance"
-            width={400}
+            width={300}
             height={120}
             className="mb-4 rounded-lg"
           />
         </div>
 
-        {/* Team Members Card */}
-        <div className="absolute right-0 md:-right-10 top-50 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+        {/* Team Members Card - Hidden on mobile */}
+        <div className="hidden md:block absolute right-0 md:-right-1 top-50 transform rotate-2 hover:rotate-0 transition-transform duration-300">
           <Image
-            src="/home2.png"
+            src="/hero1.png"
             alt="Team Members"
-            width={400}
+            width={300}
             height={200}
             className="mb-4 rounded-lg"
           />
         </div>
+        <Image
+          src="/hero3.png"
+          alt="Team Members"
+          width={300}
+          height={200}
+          className="mb-4 rounded-lg top-110 right-1 absolute z-0 hidden md:inline"
+        />
       </section>
 
       {/* Pain Points Section */}
-      <section className="pt-16 px-16">
+      <section className="pt-8 md:pt-16 px-6 md:px-8 lg:px-16">
         <div className="mx-auto">
           <div>
             <div>
@@ -302,30 +311,30 @@ export default function LandingPage() {
                 </span>
               </div>
 
-              <div className="flex justify-between items-center gap-18">
-                <div>
-                  <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+              <div className="flex flex-col md:flex-row justify-between items-center gap-8 lg:gap-18">
+                <div className="w-full lg:w-1/2">
+                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
                     Doctors don&apos;t lack expertise.
                   </h1>
-                  <p className="text-[#6B7280] text-lg xl:mb-8 mb-10">
+                  <p className="text-gray-600 text-base md:text-lg mb-8 md:mb-10">
                     They lack a system that helps patients discover, trust, and
                     choose them.
                   </p>
 
-                  <div className="space-y-12">
+                  <div className="space-y-8 md:space-y-12">
                     <div className="flex items-center space-x-3 mb-4">
                       <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                         <FiTrendingUp className="text-white" size={20} />
                       </div>
-                      <h3 className="text-2xl font-bold text-gray-900">
+                      <h3 className="text-xl md:text-2xl font-bold text-gray-900">
                         Pain Points
                       </h3>
                     </div>
-                    <p className="text-[#6B7280] text-lg mb-5">
+                    <p className="text-gray-600 text-base md:text-lg mb-5">
                       If your clinic isn&apos;t visible, trusted, or easy to
                       book - patients simply choose someone else.
                     </p>
-                    <ul className="text-gray-950 font-semibold text-sm">
+                    <ul className="text-gray-950 font-semibold text-sm max-w-80">
                       <hr className="border-gray-300" />
                       <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
                         <span>Inconsistent patient flow</span>
@@ -358,13 +367,20 @@ export default function LandingPage() {
                     </ul>
                   </div>
                 </div>
-                <div className="">
+                <div className="lg:w-[70%] relative lg:pl-20">
                   <Image
-                    src="/home12.png"
+                    src="/Frame 151.png"
                     alt="Calendar View"
-                    width={900}
-                    height={900}
-                    className=""
+                    width={200}
+                    height={300}
+                    className="absolute z-5 top-1/2 -left-1/120"
+                  />
+                  <Image
+                    src="/macbook-screen.png"
+                    alt="mac"
+                    width={850}
+                    height={800}
+                    className="absolutw z-10"
                   />
                 </div>
               </div>
@@ -374,31 +390,33 @@ export default function LandingPage() {
       </section>
 
       {/* The Promise */}
-      <PromiseSection data={promiseData} />
+      <div className="mt-50 md:mt-10 lg:mt-5">
+        <PromiseSection data={promiseData} />
+      </div>
 
       {/* Unique Features Section */}
       <section className="mt-10">
-        <div className="py-20 mx-auto mb-10 px-16 bg-linear-to-b from-[#E3ECFF] to-[#FFFFFF0F]">
-          <div className="relative flex justify-between items-start gap-16">
-            <div className="sticky top-1 max-w-xl">
-              <div className="inline-block border border-gray-300 rounded-full px-6 py-2 mb-10 shadow">
-                <span className="text-sm font-medium uppercase tracking-wide">
+        <div className="py-12 md:py-20 mx-auto mb-10 px-6 md:px-8 lg:px-16 bg-linear-to-b from-blue-50 to-white">
+          <div className="relative flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-16">
+            <div className="lg:sticky lg:top-8 w-full lg:max-w-xl mb-10 lg:mb-0">
+              <div className="inline-block border border-gray-300 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-10 shadow">
+                <span className="text-xs md:text-sm font-medium uppercase tracking-wide">
                   See How Our System Works
                 </span>
               </div>
-              <h1 className="text-3xl lg:text-[44px] font-bold mb-9">
+              <h1 className="text-2xl md:text-3xl lg:text-[44px] font-bold mb-6 md:mb-9 leading-tight">
                 Unique features that make a difference
               </h1>
 
-              <p className="text-gray-400 text-lg mb-10 leading-relaxed">
+              <p className="text-gray-600 text-base md:text-lg mb-8 md:mb-10 leading-relaxed">
                 Our growth system is built on 6 essential pillars that drive
                 patient acquisition.
               </p>
 
               {/* CTA Button */}
-              <div className="flex items-center gap-12 mt-16">
-                <button className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg">
-                  <span className="">Explore All Services</span>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 lg:gap-12 mt-8 md:mt-16">
+                <button className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg w-full sm:w-auto justify-between">
+                  <span>Explore All Services</span>
                   <span className="p-2 bg-blue-400 rounded-full">
                     <FaLongArrowAltRight size={20} />
                   </span>
@@ -410,132 +428,133 @@ export default function LandingPage() {
                     <Image
                       src="/img-client1.png"
                       alt="User 1"
-                      className="w-12 h-12 rounded-full border-2 border-black"
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black"
                       width={48}
                       height={48}
                     />
                     <Image
                       src="/img-client2.png"
                       alt="User 2"
-                      className="w-12 h-12 rounded-full border-2 border-black"
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black"
                       width={48}
                       height={48}
                     />
                     <Image
                       src="/img-video1.jpg"
                       alt="User 3"
-                      className="w-12 h-12 rounded-full border-2 border-black"
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black"
                       width={48}
                       height={48}
                     />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold">12000</p>
-                    <p className="text-gray-400 text-sm">Happy users</p>
+                    <p className="text-xl md:text-2xl font-bold">12000</p>
+                    <p className="text-gray-400 text-xs md:text-sm">
+                      Happy users
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Column - Steps */}
-            <div className="space-y-10">
-              <div className="flex items-start space-x-8">
+            <div className="space-y-6 md:space-y-10 w-full lg:w-auto">
+              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <FiTrendingUp className="text-white" size={22} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <FiTrendingUp className="text-white" size={20} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">
                     360° Reputation Growth Engine
                   </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     Grow trust, increase 5★ reviews, and build a powerful online
                     presence.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-8">
-                {/* Quote */}
+              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <HiOutlineChartBar className="text-white" size={22} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <HiOutlineChartBar className="text-white" size={20} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">
                     Clinic Growth Intelligence Dashboard
                   </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     Monitor SEO, inquiries, calls, conversions, and growth - in
                     real-time.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-8">
+              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <MdOutlineAutoAwesome className="text-white" size={22} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <MdOutlineAutoAwesome className="text-white" size={20} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">
                     AI-Powered SEO Accelerator
                   </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     Boost your rankings, attract more patient inquiries, and
                     stay discoverable.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-8">
+              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <MdOutlineWeb className="text-white" size={22} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <MdOutlineWeb className="text-white" size={20} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">
                     Website Revamp - Conversion Optimized
                   </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     Turn your website into a high-performing appointment
                     generator.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-8">
+              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <MdOutlineLocationOn className="text-white" size={22} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <MdOutlineLocationOn className="text-white" size={20} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">
                     Local Visibility & GMB Dominance System
                   </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
-                    Appear at the top for critical “near me” and local search
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    Appear at the top for critical "near me" and local search
                     queries.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-8">
+              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
                 <div className="shrink-0">
-                  <div className="w-12 h-10 mt-3 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <MdOutlineEventRepeat className="text-white" size={22} />
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <MdOutlineEventRepeat className="text-white" size={20} />
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">
+                  <h3 className="text-lg md:text-xl font-bold mb-2">
                     Automated Patient Capture & Follow-Up Funnel
                   </h3>
-                  <p className="text-gray-400 text-[16px] leading-relaxed">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
                     Instant lead capture + follow-up automation to increase
                     appointments.
                   </p>
@@ -544,119 +563,71 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <h1 className="text-4xl text-center mb-16">
-          AI-based customer service platform built for collaboration.
+        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8 md:mb-16 px-4">
+          AI-based customer service platform built for collaboration.
         </h1>
-        <Image
-          src="/home9.png"
-          width={2000}
-          height={800}
-          alt="image"
-          className="object-cover mb-10"
-        />
-      </section>
-
-      {/* Process Section */}
-      <section className="bg-linear-to-b from-blue-50 to-white py-16 px-16">
-        <div className="max-w-7xl mx-auto">
-          {/* Header Badge */}
-          <div className="flex justify-center mb-12">
-            <div className="bg-white border-2 border-gray-200 rounded-full px-6 py-2 shadow-sm">
-              <span className="text-gray-700 font-medium text-sm tracking-wide">
-                OUR PROCESS
-              </span>
-            </div>
-          </div>
-
-          {/* Main Title */}
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-16">
-            Our <span className="text-blue-600">4-Step</span> Clinic Growth
-            System
-          </h2>
-
-          {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="bg-linear-to-br from-blue-100 to-blue-50 rounded-3xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                {/* Step Number Badge */}
-                <div className="inline-block bg-white rounded-full px-4 py-1 mb-6">
-                  <span className="text-sm font-semibold text-gray-700">
-                    {step.number}
-                  </span>
-                </div>
-
-                {/* Step Title */}
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {step.title}
-                </h3>
-
-                {/* Step Description */}
-                <p className="text-gray-700 text-sm leading-relaxed mb-8">
-                  {step.description}
-                </p>
-
-                {/* Get Started Button */}
-                <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full transition-colors duration-300 shadow-md hover:shadow-lg">
-                  Get Started
-                </button>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA Button */}
-          <div className="flex justify-center">
-            <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-full flex items-center gap-5 shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
-              Get a Free Clinic Growth Audit
-              <div className="bg-white rounded-full p-2">
-                <HiArrowRight className="text-blue-600 text-xl" />
-              </div>
-            </button>
-          </div>
+        <div className="px-4 md:px-8 lg:px-16 relative mt-20">
+          <Image
+            src="/Analytics.png"
+            width={2000}
+            height={800}
+            alt="image"
+            className="object-cover mb-10 w-full h-auto rounded-lg"
+          />
+          <Image
+            src="/Link.png"
+            width={80}
+            height={50}
+            alt="btn"
+            className="absolute left-[41%] md:left-[46%] -top-10"
+          />
         </div>
       </section>
 
+      {/* Process Section */}
+      <ProcessSection />
+
+      <CaseStudiesSection />
+
       {/* Why Choose Us Section */}
-      <section className="py-16 px-16">
+      <section className="py-12 md:py-16 px-6 md:px-8 lg:px-16">
         <div className="mx-auto">
-          <div className="flex justify-between gap-16 items-center">
+          <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 items-start lg:items-center">
             {/* Left Column */}
-            <div className="w-full">
-              <div className="inline-block border border-gray-300 shadow rounded-full px-6 py-3 mb-12">
+            <div className="w-full lg:w-1/2">
+              <div className="inline-block border border-gray-300 shadow rounded-full px-6 py-3 mb-8 md:mb-12">
                 <span className="text-sm font-medium uppercase tracking-wide">
                   WHY CHOOSE US?
                 </span>
               </div>
 
-              <h1 className="text-4xl lg:text-5xl font-bold mb-12 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 leading-tight">
                 Built for Doctors. Proven Across Specialties.
               </h1>
 
               {/* Features Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 md:mb-16">
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
-                  <span className="text-lg text-gray-500">
+                  <span className="text-base md:text-lg text-gray-500">
                     Healthcare-focused growth agency
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
-                  <span className="text-lg text-gray-500">
+                  <span className="text-base md:text-lg text-gray-500">
                     AI-powered optimization + human strategy
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
-                  <span className="text-lg text-gray-500">
+                  <span className="text-base md:text-lg text-gray-500">
                     Customized plans for every specialty
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
-                  <span className="text-lg text-gray-500">
+                  <span className="text-base md:text-lg text-gray-500">
                     Mentorship from Avi Arya
                   </span>
                 </div>
@@ -670,18 +641,17 @@ export default function LandingPage() {
                   <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
                 </div>
 
-                <blockquote className="text-gray-500 text-xl mb-6 leading-relaxed">
-                  &quote;We don’t run random marketing activities - we build
-                  predictable growth engines. &quote;
+                <blockquote className="text-gray-500 text-lg md:text-xl mb-6 leading-relaxed">
+                  &quot;We don&apos;t run random marketing activities - we build
+                  predictable growth engines.&quot;
                 </blockquote>
               </div>
             </div>
 
             {/* Right Column - Pricing Card */}
-
-            <div className="w-4xl bg-linear-to-br from-blue-50 to-blue-100 rounded-3xl px-7 py-7 border-[#155DFC8C] border">
+            <div className="w-full md:w-2/3 lg:1/2 bg-linear-to-br from-blue-50 to-blue-100 rounded-3xl px-6 md:px-7 py-6 md:py-7 border-blue-400 border">
               {/* Title */}
-              <h2 className="text-4xl font-bold text-gray-900 mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8">
                 What&apos;s Included
               </h2>
 
@@ -696,7 +666,7 @@ export default function LandingPage() {
 
                     {/* Text */}
                     <div className="pt-1">
-                      <p className="text-lg text-gray-900">
+                      <p className="text-base md:text-lg text-gray-900">
                         <span className="font-bold">{feature.title}</span>{" "}
                         <span className="font-normal">
                           {feature.description}
@@ -708,7 +678,7 @@ export default function LandingPage() {
               </div>
 
               {/* CTA Button */}
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full flex items-center justify-between gap-3 shadow-lg hover:shadow-xl transition-all duration-300 text-lg">
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-bold py-3 px-6 rounded-full flex items-center justify-between gap-3 shadow-lg hover:shadow-xl transition-all duration-300 md:text-base md:text-lg">
                 Book Free Strategy Session
                 <div className="bg-white rounded-full p-2">
                   <HiArrowRight className="text-blue-600 text-xl" />
@@ -720,100 +690,10 @@ export default function LandingPage() {
       </section>
 
       {/*Founder section */}
-      <section className="bg-linear-to-br from-gray-50 via-blue-50 to-purple-50 py-16 px-16">
-        <div className="mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-2xl">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/yashik.png"
-                  alt="Two professionals collaborating at a desk"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-            {/* Left Column - Content */}
-            <div>
-              <div className="inline-block bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200 mb-5">
-                <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
-                  FOUNDER STORY
-                </span>
-              </div>
-
-              <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-3 leading-tight">
-                Meet Yashik Yadav
-                <br />
-                <p className="text-gray-600 text-3xl lg:text-4xl font-semibold mb-7">
-                  Clinic Growth Strategist
-                </p>
-              </h1>
-
-              {/* Bio Section */}
-              <div className="mb-12">
-                <p className="text-gray-700 text-xl leading-relaxed mb-8">
-                  For over 5 years, I&apos;ve been helping doctors across India
-                  build a powerful online presence and grow consistently.
-                </p>
-                <p className="text-gray-900 text-xl font-semibold leading-relaxed mb-4">
-                  My mission is simple:
-                </p>
-                <p className="text-gray-700 text-xl leading-relaxed">
-                  Help doctors get the patients they deserve by giving their
-                  clinic the visibility and trust it deserves.
-                </p>
-              </div>
-            </div>
-
-            {/* Right Column - Image */}
-          </div>
-          <div className="flex items-center justify-around my-16 gap-6">
-            <div className="flex items-center space-x-4">
-              <div className="shrink-0 w-12 h-11 bg-[#155DFC] rounded-xl flex items-center justify-center">
-                <FaLightbulb className="text-white" size={24} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  150+ doctors supported
-                </h3>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="shrink-0 w-12 h-11 bg-[#155DFC] rounded-xl flex items-center justify-center">
-                <FiMessageCircle className="text-white" size={24} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Background in healthcare marketing
-                </h3>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="shrink-0 w-12 h-11 bg-[#155DFC] rounded-xl flex items-center justify-center">
-                <FiGlobe className="text-white" size={24} />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  Built multiple clinic growth systems
-                </h3>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA Button */}
-          <button className="bg-[#155DFC] text-white mx-auto font-semibold text-lg px-6 gap-6 py-3 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg">
-            <span>Meet the Founder</span>
-            <div className="bg-white rounded-full p-2">
-              <HiArrowRight className="text-blue-600 text-xl" />
-            </div>
-          </button>
-        </div>
-      </section>
+      <FounderSection />
 
       {/*Testimonial Section */}
-      <section className="py-16 px-16 mb-10">
+      <section className="py-12 md:py-16 px-6 md:px-10 lg:px-16 mb-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-7">
             <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
@@ -823,19 +703,19 @@ export default function LandingPage() {
             </div>
           </div>
 
-          <h1 className="text-5xl lg:text-6xl font-bold text-center text-gray-900 mb-10 leading-tight">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-gray-900 mb-10 leading-tight px-4">
             Professionals use rewind to get
-            <br />
+            <br className="hidden md:block" />
             more done, faster.
           </h1>
 
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-[#f7f8fa] rounded-xl p-7 transition-shadow relative pl-12"
+                className="bg-gray-50 rounded-xl p-6 md:p-7 transition-shadow relative pl-8 md:pl-12"
               >
-                <blockquote className="text-gray-700 text-xl leading-relaxed mb-12">
+                <blockquote className="text-gray-700 text-lg md:text-xl leading-relaxed mb-12">
                   &quot; {testimonial.quote} &quot;
                 </blockquote>
 
@@ -844,17 +724,17 @@ export default function LandingPage() {
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
-                      className="w-16 h-16 rounded-full object-cover absolute -left-5 -bottom-5"
+                      className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover absolute -left-3 md:-left-5 -bottom-5"
                       width={64}
                       height={64}
                     />
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900">
+                      <h3 className="text-lg md:text-xl font-bold text-gray-900">
                         {testimonial.name}
                       </h3>
                     </div>
                   </div>
-                  <span className="text-gray-500 text-base">
+                  <span className="text-gray-500 text-sm md:text-base">
                     {testimonial.role}
                   </span>
                 </div>
@@ -865,9 +745,9 @@ export default function LandingPage() {
       </section>
 
       {/* Faq Section */}
-      <section className="bg-linear-to-b from-[#E3ECFF] to-[#FFFFFF0F] py-16 px-16">
+      <section className="bg-linear-to-b from-blue-100 to-white py-12 md:py-16 px-6 md:px-8 lg:px-16">
         <div className="mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             {/* Left Column - FAQ */}
             <div>
               <div className="inline-block bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200 mb-8">
@@ -876,7 +756,7 @@ export default function LandingPage() {
                 </span>
               </div>
 
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-12 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 md:mb-12 leading-tight">
                 Get every single answer
               </h1>
 
@@ -888,9 +768,9 @@ export default function LandingPage() {
                   >
                     <button
                       onClick={() => toggleAccordion(index)}
-                      className="w-full flex items-center justify-between px-9 py-5 text-left hover:bg-gray-50 transition-colors"
+                      className="w-full flex items-center justify-between px-6 md:px-9 py-4 md:py-5 text-left hover:bg-gray-50 transition-colors"
                     >
-                      <span className="text-xl font-semibold text-gray-900 pr-4">
+                      <span className="text-lg md:text-xl font-semibold text-gray-900 pr-4">
                         {faq.question}
                       </span>
                       <div className="shrink-0">
@@ -908,8 +788,8 @@ export default function LandingPage() {
                         openIndex === index ? "max-h-96" : "max-h-0"
                       }`}
                     >
-                      <div className="px-8 pb-8">
-                        <p className="text-gray-600 text-lg leading-relaxed">
+                      <div className="px-6 md:px-8 pb-6 md:pb-8">
+                        <p className="text-gray-600 text-base md:text-lg leading-relaxed">
                           {faq.answer}
                         </p>
                       </div>
@@ -921,10 +801,10 @@ export default function LandingPage() {
 
             {/* Right Column - Image */}
             <div className="relative h-full">
-              <div className="sticky top-8">
-                <div className="rounded-3xl overflow-hidden shadow-2xl">
+              <div className="lg:sticky lg:top-8">
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-[#155DFC8C] border-2">
                   <Image
-                    src="/contact_image_2.png"
+                    src="/image 1.png"
                     alt="Professional woman working on laptop"
                     width={800}
                     height={1000}

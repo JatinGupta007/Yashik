@@ -7,29 +7,28 @@ import { CgWebsite } from "react-icons/cg";
 
 export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-soft-white text-dark-charcoal">
+    <main>
       {/* Hero Section */}
-      <section className="bg-black text-white py-20 px-6 flex flex-col items-center justify-center relative overflow-hidden mb-16 min-h-screen">
-        <div className="absolute inset-0 bg-jet-black/10"></div>
+      <section className="bg-linear-to-b from-[#F9FAFB] via-[#EFF6FF] to-[#FFFFFF]  py-16 px-6 flex flex-col items-center justify-center relative overflow-hidden mb-16 pt-28">
         <div className="relative max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-7 mt-28">
-            Privacy Policy
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mt-28 mb-12">
+            Privacy <span className="text-blue-600">Policy</span>
           </h1>
 
           <div className="text-center">
-            <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto opacity-90">
+            <p className="text-xl md:text-2xl max-w-2xl mx-auto opacity-90 mb-12 text-gray-500">
               At Yashik Yadav & Co., we value your trust and are committed to
               protecting your privacy.
             </p>
           </div>
-          <p className="text-lg md:text-xl mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl mb-8 opacity-95 max-w-3xl mx-auto leading-relaxed text-gray-500">
             Last Updated: 15-12-2025
           </p>
         </div>
       </section>
 
       {/* Main Content Sections */}
-      <section className="px-6 lg:px-16 mx-auto space-y-16">
+      <section className="px-6 md:px-8 lg:px-16 mx-auto space-y-16">
         {/* Intro Paragraphs */}
         <ul className="bg-soft-white rounded-3xl shadow-lg p-7 lg:p-10 border border-[#2563EB] list-disc">
           <li className="text-lg text-cool-gray mb-6 ">
@@ -221,7 +220,7 @@ export default function PrivacyPolicyPage() {
       </section>
 
       {/* Contact Section - Matching Contact Page Style */}
-      <section className="py-20 px-16 bg-[#e5edfd] mt-16">
+      <section className="py-20 px-6 md:px-8 lg:px-16 bg-[#e5edfd] mt-16">
         <div className="mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Questions About Privacy?
@@ -236,9 +235,7 @@ export default function PrivacyPolicyPage() {
                 <div className="flex items-center justify-center text-3xl mb-5 text-[#2563EB]">
                   <HiOutlineMailOpen />
                 </div>
-                <p className="text-xl ">
-                  contact@yashikyadavandco.com
-                </p>
+                <p className="text-xl ">contact@yashikyadavandco.com</p>
               </a>
             </div>
             <div className="group hover:scale-105 transition-all duration-300 shadow-lg p-6 rounded-3xl bg-[#F8FAFC]">
