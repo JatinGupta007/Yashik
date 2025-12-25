@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import GrowthSection from "@/components/GrowthSection";
 import FinalCTA from "@/components/FinalCTA";
 
 import {
@@ -24,12 +23,13 @@ import {
   FiAward,
   FiZap,
 } from "react-icons/fi";
-import SixCoreServices from "@/components/ServeceDetails/SixCoreServices";
-import SystemGrowthSection from "@/components/ServeceDetails/SystemGrowth";
-import GrowthResultsSection from "@/components/ServeceDetails/ResultSection";
-import WhyDoctorsChooseUs from "@/components/ServeceDetails/WhyChooseUs";
-import ClinicContactSection from "@/components/ServeceDetails/ContactSection";
+import SixCoreServices from "@/components/Serveces/SixCoreServices";
+import SystemGrowthSection from "@/components/Serveces/SystemGrowth";
+import GrowthResultsSection from "@/components/Serveces/ResultSection";
+import WhyDoctorsChooseUs from "@/components/Serveces/WhyChooseUs";
+import ClinicContactSection from "@/components/Serveces/ContactSection";
 import FounderSection from "@/components/FounderSection";
+import ProcessSection from "@/components/GrowthSection";
 
 const pillars = [
   {
@@ -72,30 +72,51 @@ const pillars = [
 
 const steps = [
   {
-    title: "Step 1 - Audit",
+    number: "Step 1",
+    title: "Audit",
     description:
-      "We analyze your online presence, competition, reputation, website, funnels, and Google visibility.",
-    image: "/home4.png",
+      "We deeply audit your clinic’s online presence, competitors, reviews, website performance, funnels, and Google visibility.",
+    features: [
+      "Online Presence Audit",
+      "Competitor Benchmarking",
+      "SEO & GMB Review",
+    ],
   },
   {
-    title: "Step 2 - Strategy",
+    number: "Step 2",
+    title: "Strategy",
     description:
-      "We create a custom growth plan based on your specialty, locality, and patient intent.",
-    image: "/img-video1.jpg",
+      "We design a clear, data-backed growth strategy tailored to your specialty, city, and patient search intent.",
+    features: [
+      "Custom Growth Strategy",
+      "Patient Intent Mapping",
+      "Channel Prioritization",
+    ],
   },
   {
-    title: "Step 3 - Implementation",
+    number: "Step 3",
+    title: "Implementation",
     description:
-      "We set up all 6 systems and fully manage your clinic's online growth foundation.",
-    image: "/img-client2.png",
+      "We implement all systems end-to-end and manage your clinic’s digital growth foundation completely.",
+    features: [
+      "System Setup & Integration",
+      "Website & Funnel Launch",
+      "Reputation & SEO Activation",
+    ],
   },
   {
-    title: "Step 4 - Optimization",
+    number: "Step 4",
+    title: "Optimization",
     description:
-      "Weekly data analysis, reporting, and adjustments to maintain consistent growth.",
-    image: "/img-client1.png",
+      "We continuously monitor performance, analyze data weekly, and optimize for consistent patient growth.",
+    features: [
+      "Weekly Performance Tracking",
+      "Conversion Optimization",
+      "Ongoing Improvements",
+    ],
   },
 ];
+
 
 const reasons = [
   {
@@ -124,27 +145,21 @@ const reasons = [
   },
 ];
 
-export default function ServiceDetails() {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % steps.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + steps.length) % steps.length);
-  };
+export default function Services() {
 
   return (
-    <main>
+    <main className="overflow-hidden">
       <section className="bg-linear-to-b from-white to-gray-50 py-12 md:py-20 px-4 md:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto mt-30">
           {/* Images Row */}
           <div className="flex  gap-3 md:gap-3 mb-12 md:mb-20">
             {/* First Image */}
-            <div className="relative h-64 md:h-80 lg:h-110 w-200 rounded-xl overflow-hidden shadow-xl">
+            <div
+              data-aos="fade-right"
+              className="relative h-64 md:h-80 lg:h-110 w-200 rounded-xl overflow-hidden shadow-xl"
+            >
               <Image
-                src="/img1.png" // Replace with your image path
+                src="/service.png" // Replace with your image path
                 alt="Team collaboration"
                 fill
                 className="object-cover"
@@ -153,7 +168,10 @@ export default function ServiceDetails() {
             </div>
 
             {/* Second Image */}
-            <div className="relative h-64 md:h-80 lg:h-110 w-116 rounded-xl overflow-hidden shadow-xl">
+            <div
+              data-aos="fade-left"
+              className="relative h-64 md:h-80 lg:h-110 w-116 rounded-xl overflow-hidden shadow-xl"
+            >
               <Image
                 src="/img2.png" // Replace with your image path
                 alt="Team meeting"
@@ -166,7 +184,10 @@ export default function ServiceDetails() {
 
           {/* Main Heading */}
           <div className="text-center mb-8 md:mb-12 px-4">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+            <h2
+              data-aos="fade-up"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6"
+            >
               <span className="text-gray-900">
                 Everything You Need to Build a{" "}
               </span>
@@ -175,7 +196,10 @@ export default function ServiceDetails() {
               </span>
               <span className="text-gray-900"> Clinic</span>
             </h2>
-            <p className="text-gray-600 text-base md:text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed">
+            <p
+              data-aos="fade-up"
+              className="text-gray-600 text-base md:text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed"
+            >
               Our 6-system approach helps private-practice doctors attract more
               patients, increase trust, dominate local search, and automate
               follow-ups for consistent appointment growth.
@@ -183,7 +207,10 @@ export default function ServiceDetails() {
           </div>
 
           {/* CTA Button */}
-          <div className="flex justify-center mb-10 md:mb-12">
+          <div
+            data-aos="fade-up"
+            className="flex justify-center mb-10 md:mb-12"
+          >
             <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 md:font-bold md:py-4 md:px-8 rounded-full flex items-center gap-3 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 group">
               <span className="text-base md:text-lg">
                 Get Your Personalized Growth Plan
@@ -199,16 +226,25 @@ export default function ServiceDetails() {
 
           {/* Bottom Section */}
           <div className="text-center px-4">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-8">
+            <h3
+              data-aos="fade-down"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 md:mb-8"
+            >
               Doctors don&apos;t need unlimited services.
             </h3>
-            <p className="text-gray-600 text-base md:text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed mb-8 md:mb-10">
+            <p
+              data-aos="fade-down"
+              className="text-gray-600 text-base md:text-lg lg:text-xl max-w-5xl mx-auto leading-relaxed mb-8 md:mb-10"
+            >
               They need a focused, predictable system that grows their patient
               flow month after month. That&apos;s why we built six powerful,
               interlinked growth engines - each created to solve a specific
               challenge doctors face online.
             </p>
-            <p className="text-gray-900 text-lg md:text-xl font-semibold">
+            <p
+              data-aos="fade-down"
+              className="text-gray-900 text-lg md:text-xl font-semibold"
+            >
               Together, they form your Complete Clinic Growth System.
             </p>
           </div>
@@ -218,10 +254,11 @@ export default function ServiceDetails() {
       {/* intro section */}
       <SixCoreServices />
 
+      {/*Growth Section */}
       <SystemGrowthSection />
 
-      {/*Growth section */}
-      <GrowthSection pillars={pillars} />
+      {/*Process section */}
+      <ProcessSection steps={steps} />
 
       {/*outcome section */}
       <GrowthResultsSection />
@@ -231,6 +268,7 @@ export default function ServiceDetails() {
 
       <FounderSection />
 
+      {/*Contact Section */}
       <ClinicContactSection />
 
       {/*Final CTA */}

@@ -1,3 +1,7 @@
+"use client"
+
+import { useRouter } from "next/navigation";
+
 import {
   HiTrendingUp,
   HiSparkles,
@@ -24,7 +28,7 @@ const services = [
   {
     id: "03",
     icon: <HiDesktopComputer className="text-2xl md:text-3xl" />,
-    title: "Website Revamp — Conversion Optimized",
+    title: "Website Revamp - Conversion Optimized",
     description: "Turn Visitors Into Booked Appointments.",
   },
   {
@@ -48,12 +52,17 @@ const services = [
 ];
 
 export default function SixCoreServices() {
+  const router = useRouter();
+
   return (
-    <section className="bg-linear-to-b from-blue-50 to-white py-12 md:py-20 px-6 md:px-8 lg:px-16">
+    <section className="bg-linear-to-b from-blue-50 to-white py-12 md:py-20 px-6 md:px-8 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         {/* Main Title */}
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
+          <h2
+            data-aos="flip-up"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold"
+          >
             <span className="text-gray-900">THE </span>
             <span className="text-blue-600">6 CORE</span>
             <span className="text-gray-900"> SERVICES</span>
@@ -66,6 +75,8 @@ export default function SixCoreServices() {
             <div
               key={service.id}
               className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 relative group"
+              data-aos="flip-up"
+              onClick={() => router.push(`/services/${service.title}`)}
             >
               {/* Number Badge */}
               <div className="absolute top-6 right-6 md:top-8 md:right-8">

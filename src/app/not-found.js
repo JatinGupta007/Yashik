@@ -5,20 +5,16 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 export default function NotFound() {
   return (
-    <div className="relative h-160 flex items-center justify-center bg-black overflow-hidden">
-      {/* Diagonal Background Layers */}
-      <div className="absolute inset-0">
-        <div className="absolute -left-1/4 top-0 w-2/3 h-full bg-linear-to-br from-gray-900 to-black rotate-12 opacity-60" />
-        <div className="absolute right-0 top-0 w-2/3 h-full bg-linear-to-bl from-gray-900 to-black -rotate-12 opacity-60" />
-      </div>
+    <div className="relative min-h-screen flex items-center justify-center bg-linear-to-b from-blue-100 to-blue-50 overflow-hidden">
+    
 
       {/* Content */}
-      <div className="relative z-10 text-center px-4 mt-10">
+      <div className="relative z-10 text-center px-6 md:px-8 lg:px-16">
         {/* 404 Text */}
         <h1 className="flex items-center justify-center gap-4 text-[120px] md:text-[300px] font-semibold leading-none">
-          <span className="text-white">4</span>
-          <span className="text-[#9EF06A]">0</span>
-          <span className="text-white">4</span>
+          <span className="">4</span>
+          <span className="text-blue-600">0</span>
+          <span className="">4</span>
         </h1>
 
         {/* Subtitle */}
@@ -30,7 +26,7 @@ export default function NotFound() {
         <div className="mt-8 flex justify-center">
           <Link
             href="/"
-            className="group flex items-center gap-4 bg-[#9EF06A] text-black font-semibold px-8 py-3 rounded-full hover:scale-105 transition-transform"
+            className="group flex items-center justify-between gap-7 bg-blue-600 text-white font-semibold px-8 py-3.5 rounded-full hover:scale-105 transition-transform"
           >
             Go Back Home
             <span className="flex items-center justify-center w-8 h-8 rounded-full bg-white group-hover:translate-x-1 transition">

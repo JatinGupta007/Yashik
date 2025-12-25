@@ -3,38 +3,8 @@ import { useState, useRef, useEffect } from "react";
 import { HiArrowRight, HiCheck } from "react-icons/hi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const steps = [
-  {
-    number: "Step 1",
-    title: "Audit",
-    description:
-      "We analyze your online presence, competition, reputation, website, funnels, and Google visibility.",
-    features: ["Online Analysis", "Competition Review", "SEO Audit"],
-  },
-  {
-    number: "Step 2",
-    title: "Strategy",
-    description:
-      "We create a custom growth plan based on your specialty, locality, and patient intent.",
-    features: ["Custom Plan", "Target Mapping", "Growth Roadmap"],
-  },
-  {
-    number: "Step 3",
-    title: "Implementation",
-    description:
-      "We set up all 6 systems and fully manage your clinic's online growth foundation.",
-    features: ["System Setup", "Full Management", "Foundation Build"],
-  },
-  {
-    number: "Step 4",
-    title: "Optimization",
-    description:
-      "Weekly data analysis, reporting, and adjustments to maintain consistent growth.",
-    features: ["Data Analysis", "Weekly Reports", "Adjustments"],
-  },
-];
 
-export default function ProcessSection() {
+export default function ProcessSection({steps}) {
   const [selectedStep, setSelectedStep] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -72,7 +42,7 @@ export default function ProcessSection() {
     if (isAutoplay && steps.length > 0) {
       autoplayRef.current = setInterval(() => {
         setSelectedStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
-      }, 4000); // 4 seconds interval
+      }, 2000); // 2 seconds interval
     }
 
     return () => {
@@ -80,7 +50,7 @@ export default function ProcessSection() {
         clearInterval(autoplayRef.current);
       }
     };
-  }, [isAutoplay]);
+  }, [isAutoplay, steps.length]);
 
   // Pause autoplay on hover
   const handleMouseEnter = () => setIsAutoplay(false);
@@ -108,9 +78,9 @@ export default function ProcessSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Badge */}
-        <div className="flex justify-center mb-8 md:mb-12">
-          <div className="bg-white/80 backdrop-blur-sm border border-blue-200 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <span className="text-blue-600 font-semibold text-sm tracking-wider uppercase">
+        <div data-aos="fade-down" className="flex justify-center mb-8 md:mb-12">
+          <div className="bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <span className="text-gray-600 text-sm uppercase">
               Our Process
             </span>
           </div>
@@ -118,14 +88,20 @@ export default function ProcessSection() {
 
         {/* Main Title */}
         <div className="text-center mb-12 md:mb-16 px-6">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight">
+          <h2
+            data-aos="fade-down"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 leading-tight"
+          >
             Our{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-blue-400">
-              4-Step
+              {steps.length}-Step
             </span>{" "}
             Clinic Growth System
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mt-4">
+          <p
+            data-aos="fade-down"
+            className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto mt-4"
+          >
             A proven framework that transforms your clinic's online presence
             into a patient magnet
           </p>
@@ -134,6 +110,7 @@ export default function ProcessSection() {
         {/* Carousel Container */}
         <div
           className="relative w-full flex flex-col items-center max-w-7xl mx-auto"
+          data-aos="zoom-in"
           style={{
             height: isMobile ? `${CARD_SIZE + 100}px` : `${CARD_SIZE + 100}px`,
             minHeight: isMobile

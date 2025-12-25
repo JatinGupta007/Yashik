@@ -1,6 +1,4 @@
 "use client";
-import { useState, useRef } from "react";
-
 import Image from "next/image";
 
 import {
@@ -17,13 +15,9 @@ import { HiOutlineChartBar } from "react-icons/hi2";
 
 import {
   FiCheck,
-  FiMessageCircle,
-  FiGlobe,
   FiSearch,
   FiStar,
   FiFileText,
-  FiMinus,
-  FiPlus,
   FiTrendingUp,
 } from "react-icons/fi";
 import {
@@ -39,6 +33,8 @@ import PromiseSection from "@/components/PromiseSection";
 import ProcessSection from "@/components/GrowthSection";
 import CaseStudiesSection from "@/components/CaseStudy";
 import FounderSection from "@/components/FounderSection";
+import FaqSection from "@/components/FaqSection";
+import Testimonials from "@/components/Testimonials";
 
 const features = [
   {
@@ -79,30 +75,30 @@ const promiseData = {
     "A growth system that increases trust, visibility, conversions, and patient bookings - consistently.",
   leftPoints: [
     {
-      icon: <FiSearch className="text-blue-500" size={28} />,
+      icon: <FiSearch className="text-white" size={28} />,
       desc: " Top placement for “doctor near me” searches",
     },
     {
-      icon: <MdAutorenew className="text-blue-500" size={28} />,
+      icon: <MdAutorenew className="text-white" size={28} />,
       desc: "Automated patient capture and follow-up",
     },
     {
-      icon: <FiTrendingUp className="text-blue-500" size={28} />,
+      icon: <FiTrendingUp className="text-white" size={28} />,
       desc: "Full visibility of every growth metric",
     },
   ],
   image: "/home4.png",
   rightPoints: [
     {
-      icon: <FiStar className="text-blue-500" size={28} />,
+      icon: <FiStar className="text-white" size={28} />,
       desc: " Strong online authority through 5★ reputation",
     },
     {
-      icon: <HiOutlineChartBar className="text-blue-500" size={28} />,
+      icon: <HiOutlineChartBar className="text-white" size={28} />,
       desc: "Higher rankings for specialty, symptoms & treatments",
     },
     {
-      icon: <FiFileText className="text-blue-500" size={28} />,
+      icon: <FiFileText className="text-white" size={28} />,
       desc: "Website optimized for appointments & inquiries",
     },
   ],
@@ -111,31 +107,31 @@ const promiseData = {
 const testimonials = [
   {
     quote:
-      "As we explored new use cases, our feature requests were quickly loom prioritized in their backlog, the one of demonstrating.",
-    name: "Emilio J. Harper",
-    role: "CEO",
-    image: "/img-video1.jpg",
+      "Within the first month, we started receiving consistent appointment inquiries. The system helped us improve our online presence and patient trust without extra manual work.",
+    name: "Dr Nitin Negi",
+    role: "Urologist",
+    image: "/1.png",
   },
   {
     quote:
-      "As we explored new use cases, our feature requests were quickly loom prioritized in their backlog, the one of demonstrating.",
-    name: "Ricardo P. Wins",
-    role: "Game Designer",
-    image: "/img-client2.png",
+      "Our Google reviews increased steadily, and patients now mention finding us online more often. The automation saved our staff hours every week.",
+    name: "Dr Vibha Chaturvedi",
+    role: "Gynecologist",
+    image: "/2.png",
   },
   {
     quote:
-      "As we explored new use cases, our feature requests were quickly loom prioritized in their backlog, the one of demonstrating.",
-    name: "Gabriel O. East",
-    role: "Support Engr.",
-    image: "/img-client1.png",
+      "Earlier, our website was just informative. Now it actually converts visitors into booked appointments. We finally have clarity on what is working.",
+    name: "Dr Amit Bengani Jain",
+    role: "General Sergeon",
+    image: "/4.png",
   },
   {
     quote:
-      "As we explored new use cases, our feature requests were quickly loom prioritized in their backlog, the one of demonstrating.",
-    name: "Javier C. Emerson",
-    role: "UI/UX Designer",
-    image: "/img-video1.jpg",
+      "The follow-up system ensured no patient inquiry was missed. Our clinic now runs more smoothly with predictable appointment flow.",
+    name: "Dr Urmila Sharma",
+    role: "Infertility Specialist",
+    image: "/3.png",
   },
 ];
 
@@ -164,55 +160,64 @@ const faqs = [
 
 const steps = [
   {
-    title: "Step 1 - Audit",
+    number: "Step 1",
+    title: "Audit",
     description:
       "We analyze your online presence, competition, reputation, website, funnels, and Google visibility.",
-    image: "/home4.png",
+    features: ["Online Analysis", "Competition Review", "SEO Audit"],
   },
   {
-    title: "Step 2 - Strategy",
+    number: "Step 2",
+    title: "Strategy",
     description:
       "We create a custom growth plan based on your specialty, locality, and patient intent.",
-    image: "/img-video1.jpg",
+    features: ["Custom Plan", "Target Mapping", "Growth Roadmap"],
   },
   {
-    title: "Step 3 - Implementation",
+    number: "Step 3",
+    title: "Implementation",
     description:
       "We set up all 6 systems and fully manage your clinic's online growth foundation.",
-    image: "/img-client2.png",
+    features: ["System Setup", "Full Management", "Foundation Build"],
   },
   {
-    title: "Step 4 - Optimization",
+    number: "Step 4",
+    title: "Optimization",
     description:
       "Weekly data analysis, reporting, and adjustments to maintain consistent growth.",
-    image: "/img-client1.png",
+    features: ["Data Analysis", "Weekly Reports", "Adjustments"],
   },
 ];
 
+
 export default function LandingPage() {
-  const [openIndex, setOpenIndex] = useState(0);
-
-  const toggleAccordion = (index) => {
-    setOpenIndex(openIndex === index ? -1 : index);
-  };
-
+  
   return (
-    <main>
+    <main className="overflow-hidden lg:overflow-visible">
       {/* Hero Section */}
       <section className="flex flex-col items-center mx-auto px-6 md:px-6 py-12 md:py-20 bg-linear-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
         <div className="text-center mx-auto mt-24">
-          <p className="text-gray-600 text-sm md:text-base font-medium mb-6 tracking-wide uppercase">
+          <p
+            data-aos="fade-down"
+            className="text-gray-600 text-sm md:text-base font-medium mb-6 tracking-wide uppercase"
+          >
             Launch your AI website within a days
           </p>
 
           <div className="max-w-4xl px-6">
-            <h1 className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 md:mb-8">
+            <h1
+              data-aos="fade-down"
+              className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 md:mb-8"
+            >
               Get 30-60{" "}
               <span className="text-blue-600">Consistent Monthly</span>{" "}
               Appointments With a Complete{" "}
               <span className="text-blue-600">Clinic Growth</span> System
             </h1>
-            <p className="text-gray-600 text-base md:text-xl px-4 relative z-10">
+            <p
+              data-aos="fade-up"
+              className="text-gray-600 text-base md:text-xl px-4 relative z-10"
+            >
               We help private-practice doctors build trust, increase visibility,
               convert more website visitors, and automate patient follow-ups
               using our 6-system growth framework.
@@ -220,7 +225,10 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-6 mb-8 md:mb-12 text-sm md:text-base mt-8 md:mt-16 w-full px-4">
+        <div
+          data-aos="fade-up"
+          className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-6 mb-8 md:mb-12 text-sm md:text-base mt-8 md:mt-16 w-full px-4"
+        >
           <div className="flex items-center space-x-3">
             <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
               <FiCheck className="text-blue-600 shrink-0" size={15} />
@@ -255,7 +263,10 @@ export default function LandingPage() {
           </div>
         </div>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 px-4 w-full max-w-2xl">
+        <div
+          data-aos="fade-up"
+          className="flex flex-col sm:flex-row justify-center gap-4 md:gap-8 px-4 w-full max-w-2xl"
+        >
           <button className="bg-blue-600 text-white px-4 py-2 md:px-6 md:py-2.5 text-sm md:text-[16px] rounded-full font-semibold hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center justify-between space-x-4 shadow-lg w-full sm:w-auto">
             <span>Book Your Free Strategy Session</span>
             <span className="p-2 bg-blue-500 rounded-full">
@@ -278,6 +289,7 @@ export default function LandingPage() {
             width={300}
             height={120}
             className="mb-4 rounded-lg"
+            data-aos="fade-right"
           />
         </div>
 
@@ -289,6 +301,7 @@ export default function LandingPage() {
             width={300}
             height={200}
             className="mb-4 rounded-lg"
+            data-aos="fade-left"
           />
         </div>
         <Image
@@ -297,32 +310,42 @@ export default function LandingPage() {
           width={300}
           height={200}
           className="mb-4 rounded-lg top-110 right-1 absolute z-0 hidden md:inline"
+          data-aos="fade-left"
         />
       </section>
 
       {/* Pain Points Section */}
-      <section className="pt-8 md:pt-16 px-6 md:px-8 lg:px-16">
+      <section className="pt-8 md:pt-16 px-6 md:px-8 lg:px-16 overflow-hidden">
         <div className="mx-auto">
           <div>
             <div>
-              <div className="inline-block bg-white rounded-full px-6 py-3 shadow-sm mb-4 border border-gray-300">
+              <div
+                data-aos="fade-left"
+                className="inline-block bg-white rounded-full px-8 py-2.5 shadow-sm mb-4 border border-gray-300"
+              >
                 <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
-                  GENERALE PRACTICE
+                  PAIN POINTS
                 </span>
               </div>
 
-              <div className="flex flex-col md:flex-row justify-between items-center gap-8 lg:gap-18">
+              <div className="flex flex-col md:flex-row justify-between gap-8 lg:gap-18">
                 <div className="w-full lg:w-1/2">
-                  <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4">
+                  <h1
+                    data-aos="fade-left"
+                    className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-4"
+                  >
                     Doctors don&apos;t lack expertise.
                   </h1>
-                  <p className="text-gray-600 text-base md:text-lg mb-8 md:mb-10">
+                  <p
+                    data-aos="fade-left"
+                    className="text-gray-600 text-base md:text-lg mb-8 md:mb-10"
+                  >
                     They lack a system that helps patients discover, trust, and
                     choose them.
                   </p>
 
                   <div className="space-y-8 md:space-y-12">
-                    <div className="flex items-center space-x-3 mb-4">
+                    {/* <div className="flex items-center space-x-3 mb-4">
                       <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
                         <FiTrendingUp className="text-white" size={20} />
                       </div>
@@ -333,32 +356,60 @@ export default function LandingPage() {
                     <p className="text-gray-600 text-base md:text-lg mb-5">
                       If your clinic isn&apos;t visible, trusted, or easy to
                       book - patients simply choose someone else.
-                    </p>
-                    <ul className="text-gray-950 font-semibold text-sm max-w-80">
+                    </p> */}
+                    <ul className="text-gray-950 font-semibold max-w-95">
                       <hr className="border-gray-300" />
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="100"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>Inconsistent patient flow</span>
                       </li>
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="200"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>Limited online credibility and reputation</span>
                       </li>
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="300"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>
                           Not ranking for specialty or treatment keywords
                         </span>
                       </li>
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="400"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>
                           Website traffic isn&apos;t converting to appointments
                         </span>
                       </li>
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="500"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>No automated follow-up process</span>
                       </li>
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="600"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>Low visibility on Google Maps</span>
                       </li>
-                      <li className="flex items-start space-x-3 border-b border-gray-300 py-2.5">
+                      <li
+                        data-aos="fade-down"
+                        data-aos-delay="700"
+                        className="flex items-start space-x-3 border-b border-gray-300 py-2.5"
+                      >
                         <span>
                           Zero clarity on what&apos;s working and what&apos;s
                           not
@@ -367,13 +418,14 @@ export default function LandingPage() {
                     </ul>
                   </div>
                 </div>
-                <div className="lg:w-[70%] relative lg:pl-20">
+                <div className="lg:w-[70%] relative lg:pl-20 md:pt-20 lg:pt-0">
                   <Image
                     src="/Frame 151.png"
                     alt="Calendar View"
                     width={200}
                     height={300}
-                    className="absolute z-5 top-1/2 -left-1/120"
+                    className="absolute z-5 top-1/3 lg:top-2/5  -left-1/120"
+                    data-aos="fade-left"
                   />
                   <Image
                     src="/macbook-screen.png"
@@ -381,6 +433,7 @@ export default function LandingPage() {
                     width={850}
                     height={800}
                     className="absolutw z-10"
+                    data-aos="fade-right"
                   />
                 </div>
               </div>
@@ -390,7 +443,7 @@ export default function LandingPage() {
       </section>
 
       {/* The Promise */}
-      <div className="mt-50 md:mt-10 lg:mt-5">
+      <div className="mt-50 md:mt-10 lg:mt-16">
         <PromiseSection data={promiseData} />
       </div>
 
@@ -399,23 +452,35 @@ export default function LandingPage() {
         <div className="py-12 md:py-20 mx-auto mb-10 px-6 md:px-8 lg:px-16 bg-linear-to-b from-blue-50 to-white">
           <div className="relative flex flex-col lg:flex-row justify-between items-start gap-8 lg:gap-16">
             <div className="lg:sticky lg:top-8 w-full lg:max-w-xl mb-10 lg:mb-0">
-              <div className="inline-block border border-gray-300 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-10 shadow">
+              <div
+                data-aos="flip-up"
+                className="inline-block border border-gray-300 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-10 shadow"
+              >
                 <span className="text-xs md:text-sm font-medium uppercase tracking-wide">
                   See How Our System Works
                 </span>
               </div>
-              <h1 className="text-2xl md:text-3xl lg:text-[44px] font-bold mb-6 md:mb-9 leading-tight">
+              <h1
+                data-aos="flip-up"
+                className="text-2xl md:text-3xl lg:text-[44px] font-bold mb-6 md:mb-9 leading-tight"
+              >
                 Unique features that make a difference
               </h1>
 
-              <p className="text-gray-600 text-base md:text-lg mb-8 md:mb-10 leading-relaxed">
+              <p
+                data-aos="flip-up"
+                className="text-gray-600 text-base md:text-lg mb-8 md:mb-10 leading-relaxed"
+              >
                 Our growth system is built on 6 essential pillars that drive
                 patient acquisition.
               </p>
 
               {/* CTA Button */}
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 md:gap-8 lg:gap-12 mt-8 md:mt-16">
-                <button className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg w-full sm:w-auto justify-between">
+                <button
+                  data-aos="flip-up"
+                  className="bg-blue-600 text-white px-5 py-2.5 rounded-full hover:bg-blue-700 transition-all transform hover:scale-105 flex items-center space-x-3 shadow-lg w-full sm:w-auto justify-between"
+                >
                   <span>Explore All Services</span>
                   <span className="p-2 bg-blue-400 rounded-full">
                     <FaLongArrowAltRight size={20} />
@@ -423,31 +488,31 @@ export default function LandingPage() {
                 </button>
 
                 {/* Happy Users */}
-                <div className="flex items-center space-x-4">
-                  <div className="flex -space-x-3">
+                <div data-aos="flip-up" className="flex items-center space-x-4">
+                  <div className="flex -space-x-4">
                     <Image
-                      src="/img-client1.png"
+                      src="/1.png"
                       alt="User 1"
-                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black"
+                      className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                       width={48}
                       height={48}
                     />
                     <Image
-                      src="/img-client2.png"
+                      src="/2.png"
                       alt="User 2"
-                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black"
+                      className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                       width={48}
                       height={48}
                     />
                     <Image
-                      src="/img-video1.jpg"
+                      src="/3.png"
                       alt="User 3"
-                      className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-black"
+                      className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                       width={48}
                       height={48}
                     />
                   </div>
-                  <div>
+                  <div data-aos="flip-up">
                     <p className="text-xl md:text-2xl font-bold">12000</p>
                     <p className="text-gray-400 text-xs md:text-sm">
                       Happy users
@@ -459,7 +524,11 @@ export default function LandingPage() {
 
             {/* Right Column - Steps */}
             <div className="space-y-6 md:space-y-10 w-full lg:w-auto">
-              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div
+                data-aos="flip-down"
+                data-aos-delay="100"
+                className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
                 <div className="shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                     <FiTrendingUp className="text-white" size={20} />
@@ -476,7 +545,11 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div
+                data-aos="flip-down"
+                data-aos-delay="100"
+                className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
                 <div className="shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                     <HiOutlineChartBar className="text-white" size={20} />
@@ -493,7 +566,11 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div
+                data-aos="flip-down"
+                data-aos-delay="100"
+                className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
                 <div className="shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                     <MdOutlineAutoAwesome className="text-white" size={20} />
@@ -510,7 +587,11 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div
+                data-aos="flip-down"
+                data-aos-delay="100"
+                className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
                 <div className="shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                     <MdOutlineWeb className="text-white" size={20} />
@@ -527,7 +608,11 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div
+                data-aos="flip-down"
+                data-aos-delay="100"
+                className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
                 <div className="shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                     <MdOutlineLocationOn className="text-white" size={20} />
@@ -544,7 +629,11 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md">
+              <div
+                data-aos="flip-down"
+                data-aos-delay="100"
+                className="flex items-start space-x-4 md:space-x-8 bg-white/50 backdrop-blur-sm rounded-2xl p-4 md:p-6 hover:bg-white/80 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
                 <div className="shrink-0">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-lg flex items-center justify-center">
                     <MdOutlineEventRepeat className="text-white" size={20} />
@@ -563,30 +652,38 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <h1 className="text-2xl md:text-3xl lg:text-4xl text-center mb-8 md:mb-16 px-4">
-          AI-based customer service platform built for collaboration.
-        </h1>
-        <div className="px-4 md:px-8 lg:px-16 relative mt-20">
-          <Image
-            src="/Analytics.png"
-            width={2000}
-            height={800}
-            alt="image"
-            className="object-cover mb-10 w-full h-auto rounded-lg"
-          />
-          <Image
-            src="/Link.png"
-            width={80}
-            height={50}
-            alt="btn"
-            className="absolute left-[41%] md:left-[46%] -top-10"
-          />
+        <div className="overflow-hidden">
+          <h1
+            data-aos="flip-up"
+            className="text-2xl md:text-3xl lg:text-4xl text-center mb-8 md:mb-16 px-4"
+          >
+            AI-based customer service platform built for collaboration.
+          </h1>
+          <div className="px-4 md:px-8 lg:px-16 relative mt-20">
+            <Image
+              src="/Analytics.png"
+              width={2000}
+              height={800}
+              alt="image"
+              className="object-cover mb-10 w-full h-auto rounded-lg"
+              data-aos="zoom-out"
+            />
+            <Image
+              src="/Link.png"
+              width={80}
+              height={50}
+              alt="btn"
+              className="absolute left-[41%] md:left-[46%] -top-10"
+              data-aos="zoom-out"
+            />
+          </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <ProcessSection />
+      <ProcessSection steps={steps} />
 
+      {/*Case studies */}
       <CaseStudiesSection />
 
       {/* Why Choose Us Section */}
@@ -595,37 +692,43 @@ export default function LandingPage() {
           <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-16 items-start lg:items-center">
             {/* Left Column */}
             <div className="w-full lg:w-1/2">
-              <div className="inline-block border border-gray-300 shadow rounded-full px-6 py-3 mb-8 md:mb-12">
+              <div
+                data-aos="fade-down"
+                className="inline-block border border-gray-300 shadow rounded-full px-6 py-3 mb-8 md:mb-12"
+              >
                 <span className="text-sm font-medium uppercase tracking-wide">
                   WHY CHOOSE US?
                 </span>
               </div>
 
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 leading-tight">
+              <h1
+                data-aos="fade-left"
+                className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 md:mb-12 leading-tight"
+              >
                 Built for Doctors. Proven Across Specialties.
               </h1>
 
               {/* Features Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 md:mb-16">
-                <div className="flex items-center space-x-3">
+                <div data-aos="zoom-in" className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
                   <span className="text-base md:text-lg text-gray-500">
                     Healthcare-focused growth agency
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div data-aos="zoom-in" className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
                   <span className="text-base md:text-lg text-gray-500">
                     AI-powered optimization + human strategy
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div data-aos="zoom-in" className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
                   <span className="text-base md:text-lg text-gray-500">
                     Customized plans for every specialty
                   </span>
                 </div>
-                <div className="flex items-center space-x-3">
+                <div data-aos="zoom-in" className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
                   <span className="text-base md:text-lg text-gray-500">
                     Mentorship from Avi Arya
@@ -641,7 +744,10 @@ export default function LandingPage() {
                   <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
                 </div>
 
-                <blockquote className="text-gray-500 text-lg md:text-xl mb-6 leading-relaxed">
+                <blockquote
+                  data-aos="fade-up"
+                  className="text-gray-500 text-lg md:text-xl mb-6 leading-relaxed"
+                >
                   &quot;We don&apos;t run random marketing activities - we build
                   predictable growth engines.&quot;
                 </blockquote>
@@ -649,7 +755,10 @@ export default function LandingPage() {
             </div>
 
             {/* Right Column - Pricing Card */}
-            <div className="w-full md:w-2/3 lg:1/2 bg-linear-to-br from-blue-50 to-blue-100 rounded-3xl px-6 md:px-7 py-6 md:py-7 border-blue-400 border">
+            <div
+              data-aos="zoom-out"
+              className="w-full md:w-2/3 lg:w-2/5 bg-linear-to-br from-blue-50 to-blue-100 rounded-3xl px-6 md:px-7 py-6 md:py-7 border-blue-400 border"
+            >
               {/* Title */}
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 md:mb-8">
                 What&apos;s Included
@@ -678,7 +787,7 @@ export default function LandingPage() {
               </div>
 
               {/* CTA Button */}
-              <button className="w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-bold py-3 px-6 rounded-full flex items-center justify-between gap-3 shadow-lg hover:shadow-xl transition-all duration-300 md:text-base md:text-lg">
+              <button className="w-full bg-blue-600 hover:bg-blue-700 text-sm text-white font-bold py-3 px-6 rounded-full flex items-center justify-between gap-3 shadow-lg hover:shadow-xl transition-all duration-300 md:text-lg">
                 Book Free Strategy Session
                 <div className="bg-white rounded-full p-2">
                   <HiArrowRight className="text-blue-600 text-xl" />
@@ -693,130 +802,10 @@ export default function LandingPage() {
       <FounderSection />
 
       {/*Testimonial Section */}
-      <section className="py-12 md:py-16 px-6 md:px-10 lg:px-16 mb-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-7">
-            <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
-              <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
-                TESTIMONIALS
-              </span>
-            </div>
-          </div>
-
-          <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-center text-gray-900 mb-10 leading-tight px-4">
-            Professionals use rewind to get
-            <br className="hidden md:block" />
-            more done, faster.
-          </h1>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="bg-gray-50 rounded-xl p-6 md:p-7 transition-shadow relative pl-8 md:pl-12"
-              >
-                <blockquote className="text-gray-700 text-lg md:text-xl leading-relaxed mb-12">
-                  &quot; {testimonial.quote} &quot;
-                </blockquote>
-
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-4">
-                    <Image
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-14 h-14 md:w-16 md:h-16 rounded-full object-cover absolute -left-3 md:-left-5 -bottom-5"
-                      width={64}
-                      height={64}
-                    />
-                    <div>
-                      <h3 className="text-lg md:text-xl font-bold text-gray-900">
-                        {testimonial.name}
-                      </h3>
-                    </div>
-                  </div>
-                  <span className="text-gray-500 text-sm md:text-base">
-                    {testimonial.role}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Testimonials testimonials={testimonials} />
 
       {/* Faq Section */}
-      <section className="bg-linear-to-b from-blue-100 to-white py-12 md:py-16 px-6 md:px-8 lg:px-16">
-        <div className="mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-            {/* Left Column - FAQ */}
-            <div>
-              <div className="inline-block bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200 mb-8">
-                <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
-                  UNIVERSAL QUESTION
-                </span>
-              </div>
-
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 md:mb-12 leading-tight">
-                Get every single answer
-              </h1>
-
-              <div className="space-y-4">
-                {faqs.map((faq, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden transition-all duration-300"
-                  >
-                    <button
-                      onClick={() => toggleAccordion(index)}
-                      className="w-full flex items-center justify-between px-6 md:px-9 py-4 md:py-5 text-left hover:bg-gray-50 transition-colors"
-                    >
-                      <span className="text-lg md:text-xl font-semibold text-gray-900 pr-4">
-                        {faq.question}
-                      </span>
-                      <div className="shrink-0">
-                        {openIndex === index ? (
-                          <FiMinus className="text-gray-900" size={24} />
-                        ) : (
-                          <FiPlus className="text-gray-900" size={24} />
-                        )}
-                      </div>
-                    </button>
-
-                    {/* Answer Content */}
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ${
-                        openIndex === index ? "max-h-96" : "max-h-0"
-                      }`}
-                    >
-                      <div className="px-6 md:px-8 pb-6 md:pb-8">
-                        <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-                          {faq.answer}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Right Column - Image */}
-            <div className="relative h-full">
-              <div className="lg:sticky lg:top-8">
-                <div className="rounded-3xl overflow-hidden shadow-2xl border-[#155DFC8C] border-2">
-                  <Image
-                    src="/image 1.png"
-                    alt="Professional woman working on laptop"
-                    width={800}
-                    height={1000}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <FaqSection faqs={faqs} />
 
       {/* CTA Section */}
       <FinalCTA />

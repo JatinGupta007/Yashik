@@ -3,9 +3,9 @@ import { FiTrendingUp } from "react-icons/fi";
 
 export default function PromiseSection({ data }) {
   return (
-    <section className="py-16 px-6 md:px-8 lg:px-16 ">
+    <section className="py-16 px-6 md:px-8 lg:px-16 overflow-hidden">
       <div className="mx-auto flex flex-col items-center">
-        <div className="text-center mb-7">
+        <div data-aos="zoom-in" className="text-center mb-7">
           <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
             <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
               {data.subtitle}
@@ -13,12 +13,20 @@ export default function PromiseSection({ data }) {
           </div>
         </div>
 
-        <h1 className="hidden md:block text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12 leading-tight">
+        <h1
+          data-aos="zoom-in"
+          className="hidden md:block text-3xl lg:text-4xl font-bold text-center text-gray-900 mb-12 leading-tight"
+        >
           {data.title.split(" ").slice(0, 6).join(" ")}
           <br className="hidden md:block" />
           {data.title.split(" ").slice(6, data.title.length).join(" ")}
         </h1>
-        <h1 className="text-2xl md:hidden font-bold text-center mb-12">{data.title}</h1>
+        <h1
+          data-aos="zoom-in"
+          className="text-2xl md:hidden font-bold text-center mb-12"
+        >
+          {data.title}
+        </h1>
 
         <div className="flex flex-col md:flex-row gap-7">
           <div className="space-y-8">
@@ -26,8 +34,10 @@ export default function PromiseSection({ data }) {
               <div
                 key={index}
                 className="bg-white rounded-xl md:w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                data-aos="zoom-in"
+                data-aos-delay={`${index}* 100`}
               >
-                <div className="w-16 h-16 bg-[#D0DFFE] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   {point.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 leading-tight">
@@ -38,18 +48,25 @@ export default function PromiseSection({ data }) {
           </div>
 
           <div className="relative hidden lg:block">
-            <div className="rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-black via-gray-900 to-blue-500">
+            <div
+              data-aos="fade-down"
+              className="rounded-2xl overflow-hidden shadow-2xl bg-linear-to-br from-black via-gray-900 to-blue-500"
+            >
               <Image
                 src={data.image}
                 alt="Happy customer"
                 className="h-full"
                 width={600}
                 height={500}
+                data-aos="fade-up"
               />
             </div>
 
             {/* Floating ROI Card */}
-            <div className="absolute bottom-1 left-18 bg-white rounded-2xl shadow-2xl p-6 max-w-xs">
+            <div
+              data-aos="fade-up"
+              className="absolute bottom-1 left-18 bg-white rounded-2xl shadow-2xl p-6 max-w-xs"
+            >
               <div className="flex items-center space-x-3 mb-3">
                 <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
                   <FiTrendingUp className="text-blue-600" size={20} />
@@ -77,8 +94,10 @@ export default function PromiseSection({ data }) {
               <div
                 key={index}
                 className="bg-white rounded-xl md:w-78 p-7 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow"
+                data-aos="zoom-out"
+                data-aos-delay={`${index}* 100`}
               >
-                <div className="w-16 h-16 bg-[#D0DFFE] rounded-2xl flex items-center justify-center mb-6">
+                <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
                   {point.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 leading-tight">

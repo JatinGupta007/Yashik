@@ -18,7 +18,10 @@ export default function WhyDoctorsChooseUs() {
       {/* Outer rounded container */}
       <div className="mx-auto rounded-[48px] bg-linear-to-b from-[#155DFC21] via-[#F8FAFC00] to-[#155DFC21] px-6 md:px-12 py-10 md:py-16 text-center">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-16">
+        <h2
+          data-aos="flip-up"
+          className="text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-16"
+        >
           WHY DOCTORS CHOOSE US
         </h2>
 
@@ -27,6 +30,7 @@ export default function WhyDoctorsChooseUs() {
           {reasons.map((text, index) => (
             <div
               key={index}
+              data-aos="flip-up"
               className="bg-white rounded-2xl border border-blue-300
                           shadow-[0_10px_25px_rgba(0,0,0,0.08)]
                           px-14 py-8 text-xl text-gray-900
@@ -39,7 +43,10 @@ export default function WhyDoctorsChooseUs() {
         </div>
 
         {/* Footer Text */}
-        <div className="text-gray-600 text-base md:text-lg leading-relaxed">
+        <div
+          data-aos="fade-down"
+          className="text-gray-600 text-base md:text-lg leading-relaxed"
+        >
           <p>We don’t do random marketing.</p>
           <p>We build clinic growth systems that get results.</p>
         </div>

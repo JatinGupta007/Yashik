@@ -8,7 +8,10 @@ export default function SystemGrowthSection() {
     <section className="bg-white py-20 px-6 md:px-8">
       <div className="max-w-7xl mx-auto md:text-center">
         {/* Heading */}
-        <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-20">
+        <h1
+          data-aos="zoom-in"
+          className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-20"
+        >
           Your Growth <span className="text-blue-600">Doesn&apos;t</span> Come
           From <span className="text-blue-600">One Service</span> It Comes From
           a <span className="text-blue-600">System.</span>
@@ -32,7 +35,7 @@ export default function SystemGrowthSection() {
         </div>
 
         {/* Footer Line */}
-        <p className="text-gray-800 text-base md:text-lg">
+        <p data-aos="fade-up" className="text-gray-800 text-base md:text-lg">
           All work together to deliver consistent monthly appointments.
         </p>
       </div>
@@ -43,7 +46,7 @@ export default function SystemGrowthSection() {
 /* Reusable Point */
 function Point({ text }) {
   return (
-    <div className="flex items-start gap-4">
+    <div data-aos="fade-right" className="flex items-start gap-4">
       <span className="flex items-center justify-center w-6 h-6 rounded-full">
         <FiCheck className="text-blue-600 text-xl" />
       </span>
