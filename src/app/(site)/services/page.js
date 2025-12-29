@@ -1,28 +1,14 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 import FinalCTA from "@/components/FinalCTA";
 
 import {
-  HiOutlineQuestionMarkCircle,
-  HiOutlineCog,
-  HiOutlineLightningBolt,
   HiArrowRight,
 } from "react-icons/hi";
 
-import {
-  FiArrowRight,
-  FiChevronLeft,
-  FiChevronRight,
-  FiCheckCircle,
-  FiTrendingUp,
-  FiCpu,
-  FiUsers,
-  FiAward,
-  FiZap,
-} from "react-icons/fi";
+
 import SixCoreServices from "@/components/Serveces/SixCoreServices";
 import SystemGrowthSection from "@/components/Serveces/SystemGrowth";
 import GrowthResultsSection from "@/components/Serveces/ResultSection";
@@ -30,45 +16,6 @@ import WhyDoctorsChooseUs from "@/components/Serveces/WhyChooseUs";
 import ClinicContactSection from "@/components/Serveces/ContactSection";
 import FounderSection from "@/components/FounderSection";
 import ProcessSection from "@/components/GrowthSection";
-
-const pillars = [
-  {
-    title: "360° Reputation Growth Engine",
-    highlight: "Build Trust → Convert More Patients",
-    desc: "We grow your 5★ reviews, patient testimonials, and online trust across Google, social media, and key listings—so patients choose you with confidence.",
-    cta: "Learn More →",
-  },
-  {
-    title: "AI-Powered SEO Accelerator",
-    highlight: "Rank Higher → Get Found by Local Patients",
-    desc: "A powerful AI + human-led SEO system that improves visibility for specialty, treatment, and symptom-based searches that patients actually use.",
-    cta: "Learn More →",
-  },
-  {
-    title: "Website Revamp - Conversion Optimized",
-    highlight: "Turn Visitors Into Booked Appointments",
-    desc: "We redesign or optimize your clinic website for speed, clarity, trust, and conversions—making it a true 24/7 appointment engine.",
-    cta: "Learn More →",
-  },
-  {
-    title: "Local Visibility & GMB Dominance System",
-    highlight: "Own the “Doctor Near Me” Searches",
-    desc: "We optimize and manage your Google Business Profile and local listings to help you rank higher on Google Maps for your specialty.",
-    cta: "Learn More →",
-  },
-  {
-    title: "Automated Patient Capture & Follow-Up Funnel",
-    highlight: "Capture Every Lead → Convert More Patients",
-    desc: "Automated WhatsApp and SMS follow-ups, reminders, and reactivation flows ensure no patient inquiry is ever missed.",
-    cta: "Learn More →",
-  },
-  {
-    title: "Clinic Growth Intelligence Dashboard",
-    highlight: "Track Every Important Metric in One Place",
-    desc: "Monitor SEO performance, inquiries, calls, conversions, website traffic, and reviews in one real-time dashboard built for clinics.",
-    cta: "Learn More →",
-  },
-];
 
 const steps = [
   {
@@ -117,34 +64,6 @@ const steps = [
   },
 ];
 
-
-const reasons = [
-  {
-    icon: <FiTrendingUp size={24} />,
-    text: "Proven 6-system clinic growth model",
-  },
-  {
-    icon: <FiUsers size={24} />,
-    text: "Healthcare-only agency",
-  },
-  {
-    icon: <FiCpu size={24} />,
-    text: "AI-backed + human strategy",
-  },
-  {
-    icon: <FiCheckCircle size={24} />,
-    text: "Strong founder involvement",
-  },
-  {
-    icon: <FiAward size={24} />,
-    text: "Mentored & trained under Avi Arya",
-  },
-  {
-    icon: <FiZap size={24} />,
-    text: "Real results, fast execution",
-  },
-];
-
 export default function Services() {
 
   return (
@@ -159,7 +78,7 @@ export default function Services() {
               className="relative h-64 md:h-80 lg:h-110 w-200 rounded-xl overflow-hidden shadow-xl"
             >
               <Image
-                src="/service.png" // Replace with your image path
+                src="/services_home.png" // Replace with your image path
                 alt="Team collaboration"
                 fill
                 className="object-cover"
@@ -173,7 +92,7 @@ export default function Services() {
               className="relative h-64 md:h-80 lg:h-110 w-116 rounded-xl overflow-hidden shadow-xl"
             >
               <Image
-                src="/img2.png" // Replace with your image path
+                src="/services_home_r.png" // Replace with your image path
                 alt="Team meeting"
                 fill
                 className="object-cover"

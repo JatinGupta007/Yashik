@@ -1,17 +1,12 @@
-import FinalCTA from "@/components/FinalCTA";
-
-import PromiseSection from "@/components/PromiseSection";
 import Image from "next/image";
+
+import FinalCTA from "@/components/FinalCTA";
+import PromiseSection from "@/components/PromiseSection";
+import FounderSection from "@/components/FounderSection";
+import SixCoreServices from "@/components/Serveces/SixCoreServices";
+
 import { HiArrowRight } from "react-icons/hi";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
-import {
-  HiOutlineHeart,
-  HiOutlineSparkles,
-  HiOutlineChartBar,
-  HiOutlineCursorClick,
-  HiOutlineRefresh,
-  HiOutlineStar,
-} from "react-icons/hi";
 
 import {
   FiEye,
@@ -21,9 +16,7 @@ import {
   FiCheckCircle,
   FiUsers,
 } from "react-icons/fi";
-import ProcessSection from "@/components/GrowthSection";
-import FounderSection from "@/components/FounderSection";
-import SixCoreServices from "@/components/Serveces/SixCoreServices";
+
 
 const promiseData = {
   subtitle: "OUR VALUES",
@@ -44,7 +37,7 @@ const promiseData = {
     },
   ],
 
-  image: "/home4.png",
+  image: "/promise.png",
 
   rightPoints: [
     {
@@ -62,44 +55,11 @@ const promiseData = {
   ],
 };
 
-const items = [
-  {
-    title: "Healthcare-Only Focus",
-    text: "We deeply understand patients, symptoms, treatment journeys, and medical search intent.",
-    icon: <HiOutlineHeart />,
-  },
-  {
-    title: "AI-Powered SEO + Human Strategy",
-    text: "The perfect blend of automation, data, and expert-led growth decisions.",
-    icon: <HiOutlineSparkles />,
-  },
-  {
-    title: "Weekly Reporting with Real Numbers",
-    text: "Clear visibility into calls, inquiries, appointments, and keyword rankings.",
-    icon: <HiOutlineChartBar />,
-  },
-  {
-    title: "Conversion-First Websites",
-    text: "Websites designed to educate patients and turn visits into booked appointments.",
-    icon: <HiOutlineCursorClick />,
-  },
-  {
-    title: "Automation for Follow-Ups",
-    text: "No missed leads with smart follow-ups across calls, WhatsApp, and CRM.",
-    icon: <HiOutlineRefresh />,
-  },
-  {
-    title: "Reputation-First Approach",
-    text: "Trust and credibility systems that directly drive patient bookings.",
-    icon: <HiOutlineStar />,
-  },
-];
-
 export default function HeroSection() {
   return (
     <main className="overflow-hidden lg:overflow-visible">
       {/* Hero section */}
-      <section className="relative overflow-hidden">
+      <section className="relative">
         <div className="mx-auto px-6 pt-24 text-center bg-linear-to-b from-blue-50 via-blue-100 to-white">
           {/* Headline */}
           <h1
@@ -154,7 +114,7 @@ export default function HeroSection() {
                     className="relative h-64 sm:h-80 md:h-96 lg:h-105 rounded-xl overflow-hidden shadow-xl"
                   >
                     <Image
-                      src="/work.png" // Replace with your image path
+                      src="/about-us.png" // Replace with your image path
                       alt="Team discussion"
                       fill
                       className="object-cover"
@@ -225,7 +185,7 @@ export default function HeroSection() {
               className="relative h-64 sm:h-80 md:h-96 lg:h-125 rounded-xl overflow-hidden shadow-xl order-2"
             >
               <Image
-                src="/img2.png" // Replace with your image path
+                src="/about_us_2.png" // Replace with your image path
                 alt="Team discussion"
                 fill
                 className="object-cover"

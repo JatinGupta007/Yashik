@@ -11,7 +11,7 @@ export default function FaqSection({ faqs }) {
   };
 
   return (
-    <section className="bg-linear-to-b from-blue-100 to-white py-12 md:py-16 px-6 md:px-8 lg:px-16">
+    <section className="bg-linear-to-b from-blue-100 to-white py-12 md:py-16 px-6 md:px-8 lg:px-16 overflow-hidden">
       <div className="mx-auto">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
           {/* Left Column - FAQ */}
@@ -76,15 +76,15 @@ export default function FaqSection({ faqs }) {
           <div className="relative h-full">
             <div className="lg:sticky lg:top-16">
               <div
-                className=""
+                className="rounded-3xl"
                 data-aos="zoom-out"
               >
                 <Image
-                  src="/faq.png"
+                  src="/faqs.png"
                   alt="Professional woman working on laptop"
                   width={800}
                   height={1000}
-                  className="object-cover"
+                  className="rounded-3xl object-cover"
                   priority
                 />
               </div>

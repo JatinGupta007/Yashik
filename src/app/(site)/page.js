@@ -10,7 +10,7 @@ import {
   HiShieldCheck,
   HiArrowRight,
 } from "react-icons/hi";
-import { FaLongArrowAltRight, FaLightbulb } from "react-icons/fa";
+import { FaLongArrowAltRight } from "react-icons/fa";
 import { HiOutlineChartBar } from "react-icons/hi2";
 
 import {
@@ -87,7 +87,7 @@ const promiseData = {
       desc: "Full visibility of every growth metric",
     },
   ],
-  image: "/home4.png",
+  image: "/promise.png",
   rightPoints: [
     {
       icon: <FiStar className="text-white" size={28} />,
@@ -110,28 +110,28 @@ const testimonials = [
       "Within the first month, we started receiving consistent appointment inquiries. The system helped us improve our online presence and patient trust without extra manual work.",
     name: "Dr Nitin Negi",
     role: "Urologist",
-    image: "/1.png",
+    image: "/img-video1.jpg",
   },
   {
     quote:
       "Our Google reviews increased steadily, and patients now mention finding us online more often. The automation saved our staff hours every week.",
     name: "Dr Vibha Chaturvedi",
     role: "Gynecologist",
-    image: "/2.png",
+    image: "/img-client2.png",
   },
   {
     quote:
       "Earlier, our website was just informative. Now it actually converts visitors into booked appointments. We finally have clarity on what is working.",
     name: "Dr Amit Bengani Jain",
     role: "General Sergeon",
-    image: "/4.png",
+    image: "/img-client3.png",
   },
   {
     quote:
       "The follow-up system ensured no patient inquiry was missed. Our clinic now runs more smoothly with predictable appointment flow.",
     name: "Dr Urmila Sharma",
     role: "Infertility Specialist",
-    image: "/3.png",
+    image: "/img-client1.png",
   },
 ];
 
@@ -189,13 +189,12 @@ const steps = [
   },
 ];
 
-
 export default function LandingPage() {
   
   return (
     <main className="overflow-hidden lg:overflow-visible">
       {/* Hero Section */}
-      <section className="flex flex-col items-center mx-auto px-6 md:px-6 py-12 md:py-20 bg-linear-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
+      <section className="flex flex-col items-center mx-auto px-6 md:px-8 lg:px-16 py-12 md:py-20 bg-linear-to-b from-gray-50 via-blue-50 to-white relative overflow-hidden">
         <div className="text-center mx-auto mt-24">
           <p
             data-aos="fade-down"
@@ -227,7 +226,7 @@ export default function LandingPage() {
 
         <div
           data-aos="fade-up"
-          className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-4 md:gap-6 mb-8 md:mb-12 text-sm md:text-base mt-8 md:mt-16 w-full px-4"
+          className="flex flex-col md:flex-row flex-wrap justify-around items-center gap-4 md:gap-6 mb-8 md:mb-12 text-sm md:text-base mt-8 md:mt-16 w-full px-4"
         >
           <div className="flex items-center space-x-3">
             <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
@@ -250,15 +249,7 @@ export default function LandingPage() {
               <FiCheck className="text-blue-600 shrink-0" size={15} />
             </span>
             <span className="text-gray-700 text-base md:text-lg">
-              Mentored by Avi Arya
-            </span>
-          </div>
-          <div className="items-center space-x-3 hidden lg:flex">
-            <span className="border p-2.5 rounded-full flex items-center border-gray-300 bg-linear-to-r from-blue-50 to-gray-100">
-              <FiCheck className="text-blue-600 shrink-0" size={15} />
-            </span>
-            <span className="text-gray-700 text-base md:text-lg">
-              Proven 6-System Clinic Growth Model
+              Proven 6-System Clinic Growth
             </span>
           </div>
         </div>
@@ -284,11 +275,11 @@ export default function LandingPage() {
         {/* Sales Performance Card - Hidden on mobile */}
         <div className="hidden md:block absolute left-0 md:-left-1 top-50 transform -rotate-3 hover:rotate-0 transition-transform duration-300">
           <Image
-            src="/hero2.png"
+            src="/hero-left.png"
             alt="Sales Performance"
-            width={300}
+            width={340}
             height={120}
-            className="mb-4 rounded-lg"
+            className="mb-4"
             data-aos="fade-right"
           />
         </div>
@@ -315,7 +306,7 @@ export default function LandingPage() {
       </section>
 
       {/* Pain Points Section */}
-      <section className="pt-8 md:pt-16 px-6 md:px-8 lg:px-16 overflow-hidden">
+      <section className="pt-8 md:pt-10 px-6 md:px-8 lg:px-16">
         <div className="mx-auto">
           <div>
             <div>
@@ -420,15 +411,15 @@ export default function LandingPage() {
                 </div>
                 <div className="lg:w-[70%] relative lg:pl-20 md:pt-20 lg:pt-0">
                   <Image
-                    src="/Frame 151.png"
+                    src="/mobile.png"
                     alt="Calendar View"
                     width={200}
                     height={300}
-                    className="absolute z-5 top-1/3 lg:top-2/5  -left-1/120"
+                    className="absolute z-5 top-1/3 lg:top-1/3  -left-1/120 w-40 lg:w-52"
                     data-aos="fade-left"
                   />
                   <Image
-                    src="/macbook-screen.png"
+                    src="/dashboard.png"
                     alt="mac"
                     width={850}
                     height={800}
@@ -443,7 +434,7 @@ export default function LandingPage() {
       </section>
 
       {/* The Promise */}
-      <div className="mt-50 md:mt-10 lg:mt-16">
+      <div className="mt-50 md:mt-10 lg:mt-20">
         <PromiseSection data={promiseData} />
       </div>
 
@@ -491,21 +482,21 @@ export default function LandingPage() {
                 <div data-aos="flip-up" className="flex items-center space-x-4">
                   <div className="flex -space-x-4">
                     <Image
-                      src="/1.png"
+                      src="/img-client1.png"
                       alt="User 1"
                       className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                       width={48}
                       height={48}
                     />
                     <Image
-                      src="/2.png"
+                      src="/img-client2.png"
                       alt="User 2"
                       className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                       width={48}
                       height={48}
                     />
                     <Image
-                      src="/3.png"
+                      src="/img-video1.jpg"
                       alt="User 3"
                       className="w-10 h-10 md:w-14 md:h-14 rounded-full object-cover"
                       width={48}
@@ -731,7 +722,7 @@ export default function LandingPage() {
                 <div data-aos="zoom-in" className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
                   <span className="text-base md:text-lg text-gray-500">
-                    Mentorship from Avi Arya
+                    Mentorship from Yashik Yadav
                   </span>
                 </div>
               </div>

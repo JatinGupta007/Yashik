@@ -9,7 +9,7 @@ const caseStudies = [
     title: "0 - 34 Appointments Per Month in Just 60 Days",
     description:
       "Used SEO, GMB, website optimization, and patient funnel system.",
-    image: "/case-study-1.png", // Replace with your image path
+    image: "/case_study_1.png", // Replace with your image path
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ const caseStudies = [
     specialty: "IVF SPECIALIST, DELHI",
     title: "212% Increase in Patient Inquiries in 90 Days",
     description: "Powered by reputation growth engine and SEO accelerator.",
-    image: "/case-study-2.png", // Replace with your image path
+    image: "/case_study_2.png", // Replace with your image path
   },
   {
     id: 3,
@@ -25,7 +25,7 @@ const caseStudies = [
     specialty: "GASTRO, BANGALORE",
     title: "Ranked #1 for 9 High-Intent Treatment Keywords",
     description: "Achieved using local SEO and conversion-optimized website.",
-    image: "/case-study-3.png", // Replace with your image path
+    image: "/case_study_3.png", // Replace with your image path
   },
 ];
 
@@ -40,7 +40,7 @@ export default function CaseStudiesSection() {
             className="bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mb-12"
           >
             <span className="text-gray-600 font-semibold text-sm tracking-wider uppercase">
-              Our Process
+              Case Studies
             </span>
           </div>
           <h2
@@ -65,7 +65,7 @@ export default function CaseStudiesSection() {
               data-aos="zoom-out"
             >
               {/* Image Container */}
-              <div className="relative h-64 md:h-72 overflow-hidden bg-gray-100">
+              <div className="relative h-64 md:h-72 overflow-hidden bg-gray-100 rounded-t-3xl">
                 <Image
                   src={study.image}
                   alt={study.title}

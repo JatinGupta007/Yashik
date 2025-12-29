@@ -1,24 +1,10 @@
-import { HiArrowRight, HiTrendingUp } from "react-icons/hi";
-import {
-  FaStar,
-  FaAddressBook,
-  FaProjectDiagram,
-  FaAward,
-} from "react-icons/fa";
+import { HiArrowRight } from "react-icons/hi";
+import { FaStar } from "react-icons/fa";
 
-import {
-  FaCog,
-  FaLink,
-  FaChartLine,
-  FaAddressCard,
-  FaChartBar,
-  FaFileAlt,
-} from "react-icons/fa";
 import FaqSection from "./FaqSection";
 import ProcessSection from "./GrowthSection";
 
-
-export default function ServiceDetails({data}) {
+export default function ServiceDetails({ data }) {
   const {
     title,
     desc,
@@ -164,7 +150,7 @@ export default function ServiceDetails({data}) {
               </span>{" "}
               {promiseTitle.split(" ").slice(3, -2).join(" ")}{" "}
               <span className="text-blue-600">
-                {promiseTitle.split(" ").at(-2)} 
+                {promiseTitle.split(" ").at(-2)}
               </span>{" "}
               {promiseTitle.split(" ").at(-1)}
             </h2>
@@ -182,7 +168,7 @@ export default function ServiceDetails({data}) {
               <div
                 key={feature.id}
                 data-aos="flip-up"
-                className={`bg-linear-to-br from-blue-300 via-blue-50 to-white rounded-3xl flex flex-col justify-center items-center w-65 h-57 border-2 border-blue-300 hover:border-blue-500 transition-all duration-300 hover:shadow-xl transform hover:scale-105 ${
+                className={`bg-linear-to-br from-blue-300 via-blue-50 to-white rounded-2xl flex flex-col justify-center items-center w-65 h-57 border-2 border-blue-300 hover:border-blue-500 transition-all duration-300 hover:shadow-xl transform hover:scale-105 ${
                   index >= 3 ? "lg:col-start-auto" : ""
                 } ${index === 3 ? "sm:col-start-1 lg:col-start-2" : ""} ${
                   index === 4 ? "sm:col-start-2 lg:col-start-3" : ""

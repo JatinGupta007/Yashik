@@ -109,7 +109,7 @@ export default function ProcessSection({steps}) {
 
         {/* Carousel Container */}
         <div
-          className="relative w-full flex flex-col items-center max-w-7xl mx-auto"
+          className="relative w-full flex flex-col items-center max-w-7xl mx-auto overflow-hidden"
           data-aos="zoom-in"
           style={{
             height: isMobile ? `${CARD_SIZE + 100}px` : `${CARD_SIZE + 100}px`,
@@ -122,10 +122,9 @@ export default function ProcessSection({steps}) {
         >
           {/* Carousel */}
           <div
-            className="relative flex items-center justify-center w-full overflow-hidden"
+            className="relative flex items-center justify-center w-full overflow-hidden md:overflow-visible md:py-16"
             style={{
-              height: `${CARD_SIZE}px`,
-              minHeight: `${CARD_SIZE}px`,
+              minHeight: `${CARD_SIZE + 10}px`,
             }}
           >
             {/* Left Arrow */}
@@ -268,7 +267,7 @@ export default function ProcessSection({steps}) {
           </div>
 
           {/* Pagination Dots */}
-          <div className="flex justify-center mt-6 md:mt-8 space-x-2 md:space-x-3">
+          <div className="flex justify-center mt-6 md:mt-16 mb-10 space-x-2 md:space-x-3">
             {steps.length > 0 &&
               steps.map((_, index) => (
                 <button
