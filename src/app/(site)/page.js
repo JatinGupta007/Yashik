@@ -120,7 +120,7 @@ const testimonials = [
   {
     quote: "Our website finally started converting",
     name: "Dr. Rohit Malhotra ",
-    role: "General Sergeon",
+    role: "General Surgeon",
     image: "/img-client3.png",
   },
  

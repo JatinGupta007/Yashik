@@ -155,55 +155,6 @@ export default function Contact() {
 
         {/* Contact Form Section */}
         <ClinicContactSection />
-
-        {/* Trust Booster Section */}
-        <section className="bg-linear-to-b from-[#E3ECFF] via-[#FFFFFF] to-[#E3ECFF] py-20 px-6 md:px-8 lg:px-16">
-          <div className="max-w-7xl mx-auto md:text-center">
-            {/* Heading */}
-            <h1
-              data-aos="zoom-out"
-              className="text-[28px] md:text-5xl lg:text-6xl font-extrabold leading-tight mb-10 md:mb-16"
-            >
-              You’re in <span className="text-blue-600">Good Hands</span>
-            </h1>
-
-            {/* Results */}
-            <div className="flex flex-col justify-center gap-y-5 md:gap-y-10 items-center max-w-6xl mx-auto">
-              {/* Left */}
-
-              <div
-                data-aos="zoom-in"
-                className="flex items-center justify-center gap-5 text-left bg-linear-to-b from-[#155DFC21] via-[#F8FAFC00] to-[#155DFC21] border-[#155DFC8C] rounded-lg px-7 md:px-50 lg:px-60 py-3 border-1"
-              >
-                <p className="text-gray-800 text-lg md:text-xl font-semibold leading-snug">
-                  Proven 6-System Growth Model
-                </p>
-              </div>
-
-              {/* Center */}
-
-              <div
-                data-aos="zoom-in"
-                className="flex items-center justify-center gap-5 text-left bg-linear-to-b from-[#155DFC21] via-[#F8FAFC00] to-[#155DFC21] border-[#155DFC8C] rounded-lg px-4 md:px-31 lg:px-36 py-3 border-1"
-              >
-                <p className="text-gray-800 text-lg md:text-xl font-semibold leading-snug">
-                  4.9 Average Rating by Doctors
-                </p>
-              </div>
-
-              {/* Right */}
-
-              <div
-                data-aos="zoom-in"
-                className="flex items-center justify-center gap-5 text-left bg-linear-to-b from-[#155DFC21] via-[#F8FAFC00] to-[#155DFC21] border-[#155DFC8C] rounded-lg px-4 md:px-20 py-3 border-1"
-              >
-                <p className="text-gray-800 text-lg md:text-xl font-semibold leading-snug">
-                  150+ Clinics Supported
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
       </div>
     </main>
   );

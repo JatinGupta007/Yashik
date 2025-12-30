@@ -153,7 +153,7 @@ export default function Footer() {
             <p className="text-gray-600 text-sm">
               2025 © All rights reserved by{" "}
               <span className="font-semibold text-gray-900">
-                Yasik Yadav & Co.
+                Yashik Yadav & Co.
               </span>
             </p>
           </div>

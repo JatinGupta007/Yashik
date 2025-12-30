@@ -74,7 +74,7 @@ export default function SixCoreServices() {
           {services.map((service) => (
             <div
               key={service.id}
-              className="bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 relative group"
+              className="flex flex-col justify-between bg-white rounded-3xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 relative group"
               data-aos="flip-up"
               onClick={() => router.push(`/services/${service.title}`)}
             >
