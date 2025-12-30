@@ -4,6 +4,7 @@ import FinalCTA from "@/components/FinalCTA";
 import PromiseSection from "@/components/PromiseSection";
 import FounderSection from "@/components/FounderSection";
 import SixCoreServices from "@/components/Serveces/SixCoreServices";
+import Testimonials from "@/components/Testimonials";
 
 import { HiArrowRight } from "react-icons/hi";
 import { HiOutlineBadgeCheck } from "react-icons/hi";
@@ -16,6 +17,28 @@ import {
   FiCheckCircle,
   FiUsers,
 } from "react-icons/fi";
+
+
+const testimonials = [
+  {
+    quote: "Appointments became consistent within weeks.",
+    name: "Dr. Aarav Mehta",
+    role: "Orthopedic",
+    image: "/img-video1.jpg",
+  },
+  {
+    quote: "Patients now find us online effortlessly.",
+    name: "Dr. Neha Kulkarni",
+    role: "Gynecologist",
+    image: "/img-client2.png",
+  },
+  {
+    quote: "Our website finally started converting",
+    name: "Dr. Rohit Malhotra ",
+    role: "General Sergeon",
+    image: "/img-client3.png",
+  },
+];
 
 
 const promiseData = {
@@ -130,8 +153,8 @@ export default function HeroSection() {
                     data-aos="fade-left"
                     className="inline-block mb-6 md:mb-8"
                   >
-                    <div className="bg-white border border-gray-300 text-blue-600 rounded-full px-7 py-2 shadow">
-                      <span className="text-xs md:text-sm text-gray-600 tracking-wider uppercase">
+                    <div className="bg-white border border-[#155DFC]/55 text-blue-600 rounded-full px-7 py-2 shadow">
+                      <span className="text-xs md:text-sm text-[#155DFC] font-medium uppercase">
                         ABOUT US
                       </span>
                     </div>
@@ -182,7 +205,7 @@ export default function HeroSection() {
             {/* Left Image */}
             <div
               data-aos="zoom-out"
-              className="relative h-64 sm:h-80 md:h-96 lg:h-125 rounded-xl overflow-hidden shadow-xl order-2"
+              className="relative h-64 sm:h-80 md:h-96 lg:h-116 rounded-xl overflow-hidden shadow-xl order-2"
             >
               <Image
                 src="/about_us_2.png" // Replace with your image path
@@ -197,38 +220,38 @@ export default function HeroSection() {
             <div className="order-1">
               <HiOutlineBadgeCheck
                 data-aos="fade-right"
-                className="text-blue-600 text-3xl mb-4"
+                className="text-blue-600 text-3xl mb-2"
               />
 
-              <p data-aos="fade-right" className="mb-2">
+              <p data-aos="fade-right" className="mb-4 text-lg">
                 But most clinics do not have the time, team, or systems to
                 manage this.
               </p>
 
               <p
                 data-aos="fade-right"
-                className="font-semibold text-blue-700 mb-6"
+                className="font-semibold text-blue-700 mb-2"
               >
                 That’s where we come in.
               </p>
 
               <h3
                 data-aos="fade-right"
-                className="text-3xl md:text-4xl font-bold text-gray-900 mb-6"
+                className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
               >
                 Our Mission
               </h3>
 
               <p
                 data-aos="fade-left"
-                className="text-gray-600 text-lg leading-relaxed mb-6"
+                className="text-gray-600 text-lg leading-relaxed mb-2"
               >
                 Yashik Yadav & Co. was created with a single mission:
               </p>
 
               <p
                 data-aos="fade-left"
-                className="text-xl font-semibold text-gray-900 mb-8"
+                className="text-xl font-semibold text-gray-900 mb-6"
               >
                 to help doctors get the patients they deserve by giving their
                 clinic the visibility, trust, and systems it deserves.
@@ -267,74 +290,8 @@ export default function HeroSection() {
       {/* Deferences section */}
       <SixCoreServices />
 
-      {/*social proof section */}
-      <section className="py-16 bg-white">
-        <div className="mx-auto px-6 md:px-8 lg:px-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start relative">
-            {/* LEFT CONTENT */}
-            <div className="lg:sticky top-1">
-              {/* Badge */}
-              <span
-                data-aos="fade-left"
-                className="inline-block mb-10 px-8 py-3 rounded-full border border-gray-300 shadow text-gray-600 text-sm font-medium"
-              >
-                SOCIAL PROOFS
-              </span>
-
-              {/* Heading */}
-              <h2
-                data-aos="fade-left"
-                className="text-4xl md:text-5xl font-bold mb-10 leading-tight"
-              >
-                Results That Speak <br /> for Themselves.
-              </h2>
-
-              {/* Description */}
-              <ul data-aos="fade-right" className="mb-12 space-y-5">
-                <li className="text-lg text-gray-600 ">
-                  “30+ monthly appointments consistently.” - Dr. Nitin,
-                  Urologist
-                </li>
-                <li className="text-lg text-gray-600 ">
-                  “212% increase in IVF inquiries.” - Dr. Vibha, Gynecologist
-                </li>
-                <li className="text-lg text-gray-600 ">
-                  “Ranking #1 for 9 procedures.” - Dr. Amit, General Sergeon
-                </li>
-              </ul>
-
-              {/* CTA */}
-              <button
-                data-aos="fade-right"
-                className="inline-flex text-white items-center gap-5 px-5 text-lg py-3 rounded-full border font-medium bg-blue-600 transition"
-              >
-                View Case Studies
-                <span className="w-9 h-9 rounded-full bg-white text-black flex items-center justify-center">
-                  <HiArrowRight />
-                </span>
-              </button>
-            </div>
-
-            {/* RIGHT GRID */}
-            <div className="grid grid-cols-2 gap-5 md:gap-8">
-              {["/1.png", "/2.png", "/3.png", "/4.png"].map((src, i) => (
-                <div
-                  key={i}
-                  className="relative rounded-2xl overflow-hidden aspect-3/4"
-                  data-aos="fade-up"
-                >
-                  <Image
-                    src={src}
-                    alt={`Advisor ${i + 1}`}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/*Testimonial Section */}
+      <Testimonials testimonials={testimonials} />
 
       <PromiseSection data={promiseData} />
 

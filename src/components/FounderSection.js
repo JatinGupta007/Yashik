@@ -12,9 +12,9 @@ export default function FounderSection() {
           <div className="order-2">
             <div
               data-aos="fade-left"
-              className="inline-block bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200 mb-5"
+              className="inline-block bg-white rounded-full px-6 py-3 shadow-sm border border-[#155DFC]/55 mb-5"
             >
-              <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
+              <span className="text-sm font-medium text-[#155DFC] uppercase tracking-wide">
                 FOUNDER STORY
               </span>
             </div>
@@ -60,16 +60,13 @@ export default function FounderSection() {
 
           {/* Right Column - Image */}
           <div className="relative order-1">
-            <div
-              data-aos="zoom-in"
-              className=""
-            >
+            <div data-aos="zoom-in" className="w-full bg-white rounded-3xl">
               <Image
-                src="/yashik-yadav.png"
-                width={900}
+                src="/yy.png"
+                width={800}
                 height={700}
                 alt="Two professionals collaborating at a desk"
-                className="object-cover"
+                className="object-cover rounded-3xl"
               />
             </div>
           </div>

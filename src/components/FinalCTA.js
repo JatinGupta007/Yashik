@@ -14,7 +14,7 @@ export default function FinalCTA() {
         data-aos="fade-left"
         className="hidden md:block absolute left-1 bottom-1 lg:bottom-2 transform -rotate-6 hover:rotate-0 transition-transform duration-300"
       >
-        <Image src="/cta3.png" width={300} height={200} alt="cta" />
+        <Image src="/cta3.png" width={220} height={200} alt="cta" />
       </div>
 
       {/* Right Card - Expenses Donut Chart */}
@@ -22,7 +22,7 @@ export default function FinalCTA() {
         data-aos="fade-right"
         className="hidden md:block absolute right-1 top-2 lg:top-2 transform rotate-8 hover:rotate-0 transition-transform duration-300"
       >
-        <Image src="/cta2.png" width={300} height={200} alt="cta" />
+        <Image src="/cta2.png" width={220} height={200} alt="cta" />
       </div>
 
       {/* Main Content */}
@@ -30,7 +30,7 @@ export default function FinalCTA() {
         {/* Badge */}
         <div
           data-aos="flip-up"
-          className="inline-block border border-gray-300 text-gray-600 shadow rounded-full px-8 py-3 mb-12"
+          className="inline-block border border-[#155DFC]/55 text-[#155DFC] shadow rounded-full px-8 py-3 mb-12"
         >
           <span className="text-sm font-medium uppercase tracking-wide">
             Conversion Booster

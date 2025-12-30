@@ -21,7 +21,7 @@ export default function Header() {
   const path = usePathname();
 
   return (
-    <header className="absolute w-[96%] z-50 bg-white rounded-full shadow-xl shadow-blue-100 m-2 md:m-4 lg:m-7">
+    <header className="fixed w-[96%] z-50 bg-white rounded-full shadow-xl shadow-blue-100 m-2 md:m-4 lg:mx-7 lg:my-5">
       <div className="mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}

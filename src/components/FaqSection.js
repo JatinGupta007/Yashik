@@ -18,9 +18,9 @@ export default function FaqSection({ faqs }) {
           <div>
             <div
               data-aos="fade-left"
-              className="inline-block bg-white rounded-full px-6 py-3 shadow-sm border border-gray-200 mb-8"
+              className="inline-block rounded-full px-6 py-3 shadow-sm border border-[#155DFC]/55 mb-8"
             >
-              <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
+              <span className="text-sm font-medium text-[#155DFC] uppercase tracking-wide">
                 UNIVERSAL QUESTION
               </span>
             </div>
@@ -75,10 +75,7 @@ export default function FaqSection({ faqs }) {
           {/* Right Column - Image */}
           <div className="relative h-full">
             <div className="lg:sticky lg:top-16">
-              <div
-                className="rounded-3xl"
-                data-aos="zoom-out"
-              >
+              <div className="rounded-3xl" data-aos="zoom-out">
                 <Image
                   src="/faqs.png"
                   alt="Professional woman working on laptop"

@@ -7,7 +7,7 @@ export default function GrowthResultsSection() {
         {/* Heading */}
         <h1
           data-aos="zoom-out"
-          className="text-3xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-10 md:mb-20"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold mb-10 md:mb-20"
         >
           What <span className="text-blue-600">Doctors</span> Are Achieving with
           <br className="hidden lg:block" />

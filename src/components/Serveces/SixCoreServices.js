@@ -22,7 +22,7 @@ const services = [
   {
     id: "02",
     icon: <HiSparkles className="text-2xl md:text-3xl" />,
-    title: "AI-Powered SEO Accelerator",
+    title: "AI-Powered SEO Friendly Accelerator",
     description: "Rank Higher → Get Found by Local Patients.",
   },
   {
@@ -101,7 +101,7 @@ export default function SixCoreServices() {
               </p>
 
               {/* Read More Button */}
-              <button className="w-full bg-white border-2 border-gray-200 hover:border-blue-600 rounded-full py-3 md:py-3.5 px-6 flex items-center justify-between group/button transition-all duration-300 hover:shadow-md">
+              <button className="w-full mt-auto bg-white border-2 border-gray-200 hover:border-blue-600 rounded-full py-3 md:py-3.5 px-6 flex items-center justify-between group/button transition-all duration-300 hover:shadow-md">
                 <span className="text-gray-900 font-medium text-sm md:text-base">
                   Read More
                 </span>

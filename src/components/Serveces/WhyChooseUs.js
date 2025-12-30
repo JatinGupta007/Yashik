@@ -7,7 +7,7 @@ const reasons = [
   "Proven 6-system clinic growth model",
   "Healthcare-only agency",
   "AI-backed + human strategy",
-  "Transparent reporting",
+  "Secured Transparent Reporting",
   "Strong founder involvement",
   "Real results, fast execution",
 ];

@@ -3,12 +3,14 @@ import { useState, useRef, useEffect } from "react";
 import { HiArrowRight, HiCheck } from "react-icons/hi";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-
-export default function ProcessSection({steps}) {
-  const [selectedStep, setSelectedStep] = useState(0);
+export default function ProcessSection({ steps }) {
+  const [selectedStep, setSelectedStep] = useState(1);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const autoplayRef = useRef(null);
+
+  const circularSteps =
+    steps.length > 1 ? [steps[steps.length - 1], ...steps, steps[0]] : steps;
 
   // Responsive card sizes
   const getCardSize = () => {
@@ -39,36 +41,43 @@ export default function ProcessSection({steps}) {
 
   // Autoplay functionality
   useEffect(() => {
-    if (isAutoplay && steps.length > 0) {
-      autoplayRef.current = setInterval(() => {
-        setSelectedStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
-      }, 2000); // 2 seconds interval
+    if (!isAutoplay || circularSteps.length <= 1) return;
+
+    autoplayRef.current = setInterval(() => {
+      setSelectedStep((prev) => prev + 1);
+    }, 2000);
+
+    return () => clearInterval(autoplayRef.current);
+  }, [isAutoplay, circularSteps.length]);
+
+  useEffect(() => {
+    if (selectedStep === circularSteps.length - 1) {
+      setTimeout(() => {
+        setSelectedStep(1);
+      }, 500); // same as transition duration
     }
 
-    return () => {
-      if (autoplayRef.current) {
-        clearInterval(autoplayRef.current);
-      }
-    };
-  }, [isAutoplay, steps.length]);
+    if (selectedStep === 0) {
+      setTimeout(() => {
+        setSelectedStep(circularSteps.length - 2);
+      }, 500);
+    }
+  }, [selectedStep, circularSteps.length]);
 
   // Pause autoplay on hover
   const handleMouseEnter = () => setIsAutoplay(false);
   const handleMouseLeave = () => setIsAutoplay(true);
 
-  const goToPrev = () => {
-    if (steps.length > 0) {
-      setSelectedStep((prev) => (prev > 0 ? prev - 1 : steps.length - 1));
-      setIsAutoplay(false);
-    }
+  const goToNext = () => {
+    setSelectedStep((prev) => prev + 1);
+    setIsAutoplay(false);
   };
 
-  const goToNext = () => {
-    if (steps.length > 0) {
-      setSelectedStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
-      setIsAutoplay(false);
-    }
+  const goToPrev = () => {
+    setSelectedStep((prev) => prev - 1);
+    setIsAutoplay(false);
   };
+
 
   return (
     <section className="relative bg-linear-to-b from-blue-50 via-white to-gray-50 py-12 md:py-16 px-4 md:px-8 lg:px-16 overflow-hidden">
@@ -79,8 +88,8 @@ export default function ProcessSection({steps}) {
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header Badge */}
         <div data-aos="fade-down" className="flex justify-center mb-8 md:mb-12">
-          <div className="bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-            <span className="text-gray-600 text-sm uppercase">
+          <div className="bg-white/80 backdrop-blur-sm border border-[#155DFC]/55 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            <span className="text-[#155DFC] font-medium text-sm uppercase tracking-wide">
               Our Process
             </span>
           </div>
@@ -142,7 +151,7 @@ export default function ProcessSection({steps}) {
               style={{ height: `${CARD_SIZE}px` }}
             >
               {steps.length > 0 &&
-                steps.map((step, idx) => {
+                circularSteps.map((step, idx) => {
                   const offset = idx - selectedStep;
                   // On mobile, only show center and 1 side. On desktop, show center and 2 sides
                   const maxVisible = isMobile ? 1 : 2;

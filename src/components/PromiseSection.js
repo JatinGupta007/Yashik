@@ -6,8 +6,8 @@ export default function PromiseSection({ data }) {
     <section className="py-16 px-6 md:px-8 lg:px-16 overflow-hidden">
       <div className="mx-auto flex flex-col items-center">
         <div data-aos="zoom-in" className="text-center mb-7">
-          <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-gray-200">
-            <span className="text-sm font-medium text-gray-900 uppercase tracking-wide">
+          <div className="inline-block bg-white rounded-full px-8 py-3 shadow-sm border border-[#155DFC]/55">
+            <span className="text-sm font-medium text-[#155DFC] uppercase tracking-wide">
               {data.subtitle}
             </span>
           </div>

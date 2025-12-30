@@ -106,33 +106,24 @@ const promiseData = {
 
 const testimonials = [
   {
-    quote:
-      "Within the first month, we started receiving consistent appointment inquiries. The system helped us improve our online presence and patient trust without extra manual work.",
-    name: "Dr Nitin Negi",
-    role: "Urologist",
+    quote: "Appointments became consistent within weeks.",
+    name: "Dr. Aarav Mehta",
+    role: "Orthopedic",
     image: "/img-video1.jpg",
   },
   {
-    quote:
-      "Our Google reviews increased steadily, and patients now mention finding us online more often. The automation saved our staff hours every week.",
-    name: "Dr Vibha Chaturvedi",
+    quote: "Patients now find us online effortlessly.",
+    name: "Dr. Neha Kulkarni",
     role: "Gynecologist",
     image: "/img-client2.png",
   },
   {
-    quote:
-      "Earlier, our website was just informative. Now it actually converts visitors into booked appointments. We finally have clarity on what is working.",
-    name: "Dr Amit Bengani Jain",
+    quote: "Our website finally started converting",
+    name: "Dr. Rohit Malhotra ",
     role: "General Sergeon",
     image: "/img-client3.png",
   },
-  {
-    quote:
-      "The follow-up system ensured no patient inquiry was missed. Our clinic now runs more smoothly with predictable appointment flow.",
-    name: "Dr Urmila Sharma",
-    role: "Infertility Specialist",
-    image: "/img-client1.png",
-  },
+ 
 ];
 
 const faqs = [
@@ -312,9 +303,9 @@ export default function LandingPage() {
             <div>
               <div
                 data-aos="fade-left"
-                className="inline-block bg-white rounded-full px-8 py-2.5 shadow-sm mb-4 border border-gray-300"
+                className="inline-block bg-white rounded-full px-8 py-2.5 shadow mb-4 border border-[#155DFC]/55"
               >
-                <span className="text-sm font-medium text-gray-500 uppercase tracking-wide">
+                <span className="text-sm text-[#155DFC] uppercase font-medium tracking-wide">
                   PAIN POINTS
                 </span>
               </div>
@@ -411,7 +402,7 @@ export default function LandingPage() {
                 </div>
                 <div className="lg:w-[70%] relative lg:pl-20 md:pt-20 lg:pt-0">
                   <Image
-                    src="/mobile.png"
+                    src="/phone.png"
                     alt="Calendar View"
                     width={200}
                     height={300}
@@ -419,11 +410,11 @@ export default function LandingPage() {
                     data-aos="fade-left"
                   />
                   <Image
-                    src="/dashboard.png"
+                    src="/mac.png"
                     alt="mac"
                     width={850}
                     height={800}
-                    className="absolutw z-10"
+                    className="z-10 rounded-l-xl"
                     data-aos="fade-right"
                   />
                 </div>
@@ -445,9 +436,9 @@ export default function LandingPage() {
             <div className="lg:sticky lg:top-8 w-full lg:max-w-xl mb-10 lg:mb-0">
               <div
                 data-aos="flip-up"
-                className="inline-block border border-gray-300 rounded-full px-4 md:px-6 py-2 mb-6 md:mb-10 shadow"
+                className="inline-block border border-[#155DFC]/55 rounded-full px-4 md:px-6 py-3 mb-6 md:mb-10 shadow"
               >
-                <span className="text-xs md:text-sm font-medium uppercase tracking-wide">
+                <span className="text-xs text-[#155DFC] md:text-sm font-medium uppercase tracking-wide">
                   See How Our System Works
                 </span>
               </div>
@@ -652,19 +643,11 @@ export default function LandingPage() {
           </h1>
           <div className="px-4 md:px-8 lg:px-16 relative mt-20">
             <Image
-              src="/Analytics.png"
+              src="/analytics.png"
               width={2000}
               height={800}
               alt="image"
               className="object-cover mb-10 w-full h-auto rounded-lg"
-              data-aos="zoom-out"
-            />
-            <Image
-              src="/Link.png"
-              width={80}
-              height={50}
-              alt="btn"
-              className="absolute left-[41%] md:left-[46%] -top-10"
               data-aos="zoom-out"
             />
           </div>
@@ -685,9 +668,9 @@ export default function LandingPage() {
             <div className="w-full lg:w-1/2">
               <div
                 data-aos="fade-down"
-                className="inline-block border border-gray-300 shadow rounded-full px-6 py-3 mb-8 md:mb-12"
+                className="inline-block border border-[#155DFC]/55 shadow rounded-full px-6 py-3 mb-8 md:mb-12"
               >
-                <span className="text-sm font-medium uppercase tracking-wide">
+                <span className="text-sm text-[#155DFC] font-medium uppercase tracking-wide">
                   WHY CHOOSE US?
                 </span>
               </div>
@@ -722,7 +705,7 @@ export default function LandingPage() {
                 <div data-aos="zoom-in" className="flex items-center space-x-3">
                   <FiCheck className="text-blue-500 shrink-0" size={24} />
                   <span className="text-base md:text-lg text-gray-500">
-                    Mentorship from Yashik Yadav
+                    Get real patient experience
                   </span>
                 </div>
               </div>

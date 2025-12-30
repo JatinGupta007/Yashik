@@ -14,7 +14,7 @@ export default function ClinicContactSection() {
             {/* Tag */}
             <span
               data-aos="fade-right"
-              className="inline-block mb-6 px-4 py-1.5 text-xs font-semibold text-blue-600 border border-blue-300 rounded-full"
+              className="inline-block mb-6 px-4 py-2 text-xs font-semibold text-[#155DFC] border border-[#155DFC]/55 rounded-full"
             >
               LET’S TALK
             </span>
@@ -91,25 +91,25 @@ export default function ClinicContactSection() {
             </div>
 
             <div data-aos="zoom-in">
-              <h3 className="font-semibold text-gray-900 mb-2">
+              <h3 className="font-semibold text-gray-900 mb-2 text-xl">
                 Prefer to Talk Directly?
               </h3>
 
-              <div className="text-sm text-gray-600 space-y-1">
+              <div className="text-lg font-medium text-gray-600 space-y-1">
                 <p>info@yashikyadav.co</p>
                 <p>+91 9887007362</p>
                 <p className="flex items-center gap-3">
-                  Chat Now <FaWhatsapp className="text-green-500 text-[16px]" />
+                  Chat Now <FaWhatsapp className="text-green-500 text-[20px]" />
                 </p>
               </div>
 
-              <div className="mt-4 text-sm text-gray-700">
+              <div className="mt-2 text-lg text-gray-700 font-medium">
                 <p>Yashik Yadav and Co.</p>
-                <p>Jaipur</p>
+                <p>Jaipur, Rajasthan</p>
               </div>
 
-              <p className="mt-4 text-sm text-gray-500 underline">
-                Available Monday – Saturday, 10 AM – 7 PM
+              <p className="mt-2 text-lg text-gray-500 underline font-medium">
+                Available: Monday - Saturday, 10 AM - 7 PM
               </p>
             </div>
           </div>

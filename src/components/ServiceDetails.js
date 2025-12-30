@@ -168,7 +168,7 @@ export default function ServiceDetails({ data }) {
               <div
                 key={feature.id}
                 data-aos="flip-up"
-                className={`bg-linear-to-br from-blue-300 via-blue-50 to-white rounded-2xl flex flex-col justify-center items-center w-65 h-57 border-2 border-blue-300 hover:border-blue-500 transition-all duration-300 hover:shadow-xl transform hover:scale-105 ${
+                className={`bg-linear-to-br from-[#155DFC]/25 via-gray-50 to-white rounded-2xl flex flex-col justify-center items-center w-65 h-57 border-2 border-blue-300 hover:border-blue-500 transition-all duration-300 hover:shadow-xl transform hover:scale-105 ${
                   index >= 3 ? "lg:col-start-auto" : ""
                 } ${index === 3 ? "sm:col-start-1 lg:col-start-2" : ""} ${
                   index === 4 ? "sm:col-start-2 lg:col-start-3" : ""

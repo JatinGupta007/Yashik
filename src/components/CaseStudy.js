@@ -37,9 +37,9 @@ export default function CaseStudiesSection() {
         <div className="text-center mb-12 md:mb-16 flex flex-col items-center">
           <div
             data-aos="flip-up"
-            className="bg-white/80 backdrop-blur-sm border border-gray-300 rounded-full px-8 py-3 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 mb-12"
+            className="bg-white/80 backdrop-blur-sm border border-[#155DFC]/55 rounded-full px-8 py-3 shadow hover:shadow-xl transition-all duration-300 hover:scale-105 mb-12"
           >
-            <span className="text-gray-600 font-semibold text-sm tracking-wider uppercase">
+            <span className="text-[#155DFC] font-semibold text-sm uppercase tracking-wide">
               Case Studies
             </span>
           </div>
