@@ -197,7 +197,7 @@ export default function LandingPage() {
           <div className="max-w-4xl px-6">
             <h1
               data-aos="fade-down"
-              className="relative z-10 text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 md:mb-8"
+              className="relative z-10 text-[28px] md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6 md:mb-8"
             >
               Get 30-60{" "}
               <span className="text-blue-600">Consistent Monthly</span>{" "}
@@ -643,7 +643,7 @@ export default function LandingPage() {
           </h1>
           <div className="px-4 md:px-8 lg:px-16 relative mt-20">
             <Image
-              src="/analytics.png"
+              src="/analytic.png"
               width={2000}
               height={800}
               alt="image"

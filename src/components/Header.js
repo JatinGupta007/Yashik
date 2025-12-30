@@ -1,5 +1,6 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -18,10 +19,38 @@ const serviceDropDown = [
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServiceOpen, setIsServiceOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const path = usePathname();
 
+  useEffect(() => {
+    const controlHeader = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down & past 100px
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", controlHeader);
+
+    return () => {
+      window.removeEventListener("scroll", controlHeader);
+    };
+  }, [lastScrollY]);
+
   return (
-    <header className="fixed w-[96%] z-50 bg-white rounded-full shadow-xl shadow-blue-100 m-2 md:m-4 lg:mx-7 lg:my-5">
+    <header
+      className={`fixed w-[96%] z-50 bg-white rounded-full shadow-xl shadow-blue-100 m-2 md:m-4 lg:mx-7 lg:my-5 ${
+        isVisible ? "translate-y-0" : "-translate-y-28"
+      }`}
+    >
       <div className="mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center h-16 md:h-20">
           {/* Logo */}
@@ -159,7 +188,7 @@ export default function Header() {
             : "opacity-0 invisible pointer-events-none"
         }`}
       >
-        <nav className="flex flex-col justify-center divide-y divide-solid divide-[#bebebe]  py-24">
+        <nav className="flex flex-col justify-center divide-y divide-solid divide-[#bebebe] bg-white py-24">
           <Link
             href="/"
             onClick={() => setIsMobileMenuOpen(false)}
@@ -183,8 +212,7 @@ export default function Header() {
           <Link
             href="/services"
             onClick={() => setIsMobileMenuOpen(false)}
-            className={`flex items-end gap-2 text-2xl text-gray-700 hover:text-blue-600 transition-colors font-medium border-b border-[#bebebe] py-4 px-6 ${
-                  path === "/services" ? "text-blue-600" : "w-0"}`}
+            className={`flex items-end gap-2 text-2xl text-gray-700 hover:text-blue-600 transition-colors font-medium border-b border-[#bebebe] py-4 px-6 `}
           >
             Services <CgChevronDown />
           </Link>

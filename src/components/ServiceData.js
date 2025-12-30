@@ -195,7 +195,7 @@ export const serviceData = [
       },
       {
         number: "Step 3",
-        title: "Scale (Growth & Optimization)",
+        title: "Scale (Growth)",
         description:
           "Monthly improvement, review growth, sentiment corrections, and reporting.",
         features: [

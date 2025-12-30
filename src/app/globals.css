@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
-
-/* Apply Poppins globally */
+/* Apply ONLY Poppins globally */
+html,
 body {
-  font-family: var(--font-poppins), sans-serif;
+  font-family: var(--font-poppins);
   background-color: #ffffff;
   color: #111827;
   /* gray-900 */

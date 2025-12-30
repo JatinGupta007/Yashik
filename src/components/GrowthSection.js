@@ -15,11 +15,11 @@ export default function ProcessSection({ steps }) {
   // Responsive card sizes
   const getCardSize = () => {
     if (typeof window !== "undefined") {
-      if (window.innerWidth < 640) return 300; // Mobile
-      if (window.innerWidth < 1024) return 420; // Tablet
-      return 420; // Desktop
+      if (window.innerWidth < 640) return 320; // Mobile
+      if (window.innerWidth < 1024) return 440; // Tablet
+      return 440; // Desktop
     }
-    return 420;
+    return 440;
   };
 
   const [CARD_SIZE, setCardSize] = useState(getCardSize());
